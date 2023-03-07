@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Policy Management System</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+<style type="text/css">
+.container-fluid{
+    width: 1898px;
+    height: 728px;
+}
+
+.header{
+	position:fixed;
+    width: 108%;
+    height: 110px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-left: -75px;
+}
+.header-img{
+    margin-left: 140px;
+    margin-right: 1685px;
+    margin-top: 12px;
+    margin-bottom: 7px;
+    height: 82px;
+}
+.header-text{
+	margin-left: 225px;
+    margin-right: 1516px;
+    margin-top: -75px;
+    padding-top: 0px;
+    margin-bottom: 33px;
+    color: #07539D;
+    text-align: left;
+    font: normal normal bold 30px/46px Kohinoor Telugu;
+}
+#Buy{
+    color: #07539D;
+    display: flex;
+    margin-left: 1271px;
+    margin-right:561px;
+    margin-top:80px;
+    margin-bottom:44px;
+    text-align: left;
+	font: normal normal normal 20px/23px Arial;
+    text-decoration: none;
+    margin-top: -39px;
+
+}
+#Customer{
+    color: #07539D;
+	margin-left: 1456px;
+    margin-right:583px;
+    margin-top:-67px;
+    text-align: left;
+	font: normal normal normal 20px/23px Arial;
+    text-decoration: none;
+    display: flex;
+
+}
+#Register{
+    color: #07539D;
+	display: flex;
+    margin-left: 1636px;
+    margin-right:143px;
+    margin-top:-41px;
+    margin-bottom:35px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    height: 46px;
+    width: 144px;
+    padding-top: 7px;
+    padding-left: 39px;
+    font: normal normal normal 20px/23px Arial;
+    color: yellow;
+    text-decoration: none;
+
+}
+.body-content{
+	width: 108%;
+    height: 888px;
+    margin-left: -77px;
+    margin-top: 0px;
+    padding-top: 13px;
+    background: #FED662 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.body1{
+	margin-left: 384px;
+    margin-right: 561px;
+    margin-top: 150px;
+    padding-top: 0px;
+    padding-left: 14px;
+    font-size:26px;
+    background-color: white;
+    width: 975px;
+	height: 70px;
+}
+.body-img{
+    margin-top: 70px;
+    margin-left: 195px;
+    margin-right: 1392px;
+    width: 333px;
+	height: 356px;
+}
+.container-h1{
+    margin-left: 627px;
+    margin-right: 241px;
+    margin-top: -369px;
+    color: blue;
+}
+.tax-img{
+    height: 32px;
+    width: 33px;
+    margin-left: 673px;
+    margin-right:1188px;
+    margin-top: 29px;
+    width: 59px;
+	height: 59px;
+    border-radius: 39px;
+}
+.tax{
+    margin-left: 750px;
+    margin-right:821px;
+    margin-top: -44px;
+    width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+}
+.discount{
+    width: 59px;
+	height: 59px;
+    margin-left: 1362px;
+    margin-right:499px;
+    margin-top: -95px;
+    border-radius: 37px;
+}
+.p-discount{
+	margin-left: 1439px;
+    margin-right:140px;
+    margin-top: -70px;
+    width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+}
+.claim-img{
+	margin-left:673px;
+	margin-right:1188px;
+	margin-top: 86px;
+	width: 59px;
+	height: 59px;
+    border-radius: 37px;
+}
+.p-claim{
+	margin-left:750px;
+	margin-right:829px;
+	margin-top: -43px;
+	width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+}
+.commision-img{
+	margin-left:1362px;
+	margin-right:499px;
+	margin-top: -97px;
+	width: 59px;
+	height: 59px;
+    border-radius: 37px;
+}
+.p-commision{
+	margin-left:1439px;
+	margin-right:140px;
+	margin-top: -73px;
+	width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+}
+.get-start{
+	margin-left: 674px;
+    margin-right: -2px;
+    margin-top: 35px;
+    width: 181px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 5px #2020203c;
+    color: white;
+    border: none;
+}
+.under-body-content{
+    margin-left: 95px;
+    margin-right: 140px;
+    margin-top: -169px;
+    width: 1758px;
+	height: 387px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	border: 1px solid #FFFFFF;
+	opacity: 1;
+}
+.under-body-content1{
+	margin-left:186px;
+	margin-right:1404px;
+	margin-top: 69px;
+	width: 330px;
+	height: 229px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.icici-img{
+	margin-left: 105px;
+    margin-top: 34px;
+	width: 97px;
+	height: 97px;
+	border-radius:50%;
+}
+.p-icici{
+	margin-left: 78px;
+    margin-top: 19px;
+    width: 235px;
+	height: 28px;
+	text-align: left;
+	display:flex;
+	text-decoration:none;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.under-body-content2{
+	margin-left: 575px;
+    margin-right: 851px;
+    margin-top: -228px;
+	width: 330px;
+	height: 229px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.lic-img{
+	margin-left: 105px;
+    margin-top: 34px;
+	width: 97px;
+	height: 97px;
+	border-radius:50%;
+}
+.p-lic{
+	margin-left: 55px;
+    margin-top: 19px;
+    width: 235px;
+	height: 28px;
+	display:flex;
+	text-decoration:none;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.under-body-content3{
+	margin-left:959px;
+	margin-right:584px;
+	margin-top: -229px;
+	width: 330px;
+	height: 229px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.star-health-img{
+	margin-left: 105px;
+    margin-top: 34px;
+	width: 105px;
+	height: 97px;
+	border-radius:50%;
+}
+.p-star{
+	margin-left: 90px;
+    margin-top: 19px;
+    width: 235px;
+	height: 28px;
+	display:flex;
+	text-decoration:none;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.under-body-content4{
+	margin-left: 1346px;
+    margin-right: 84px;
+    margin-top: -229px;
+	width: 330px;
+	height: 229px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.bajaj-img{
+	margin-left: 105px;
+    margin-top: 34px;
+	width: 97px;
+	height: 97px;
+	border-radius:50%;
+}
+.p-bajaj{
+	margin-left: 77px;
+    margin-top: 19px;
+    width: 235px;
+	height: 28px;
+	display:flex;
+	text-decoration:none;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.some{
+	margin-left: 232px;
+	margin-right:1160px;
+    margin-top: 69px;
+    width: 528px;
+	height: 126px;
+	text-align: left;
+	font: normal normal normal 50px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.right-some{
+	margin-left: 800px;
+    margin-top: -143px;
+    font-size: 29px;
+	width: 780px;
+	height: 150px;
+	text-align: left;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.our-plan{
+	top: 1401px;
+	margin-left: 660px;
+	margin-right:659;
+	margin-top:115px;
+	display:flex;
+	width: 601px;
+	height: 51px;
+	text-align: left;
+	font: normal normal bold 45px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.under-our-plan{
+	margin-left:570px;
+	margin-right:570px;
+}
+</style>
+
+
+</head>
+<body>
+<div class="container-fluid">
+		<div class="header">
+			<div >
+				<img class="header-img" src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
+				<h1 class="header-text" >Policyalliance</h1>
+			</div>
+			<a href=""  id="Buy">Buy Now</a>
+			<a href="" id="Customer">Customer</a>
+			<a href="" id="Register">Register</a>
+		</div>
+		<div class="body-content">
+			<input class="body1" type="search" placeholder="Search..."  />
+			<img class="body-img" src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*">
+			<h1 class="container-h1">Term Insurance And Investment Plans</h1>
+			<img class="tax-img" src="https://www.adityabirlacapital.com/abc-of-money/-/media/Project/ABCL/Internal_Images_526x230/526x230/TX/Best_Tips_for_Tax_Saving_in_FY_2020-21_526_230_M_TX_280.svg">
+			<p class="tax">Tax Saving upto Rs 46,800</p>
+			<img class="discount" src="https://www.shutterstock.com/image-illustration/5-percent-off-3d-sign-260nw-1490566286.jpg">
+            <p class="p-discount" >5% Discount</p>
+            <img class="claim-img" alt="wait" src="https://www.maxlifeinsurance.com/static-page/assets/homepage/new_claim_mobile_ce97cf462c.jpg">
+            <p class="p-claim" >99.34% Claims Paid Ratio</p>
+            <img class="commision-img" alt="wait" src="https://www.shutterstock.com/image-vector/zero-commission-seal-stamp-corroded-260nw-1146050606.jpg">
+            <p class="p-commision">Zero Commision</p>
+           <a href="#"><button class="get-start" >Get Start</button></a> 
+		</div>
+		<div class="under-body-content">
+			<div class="under-body-content1">
+			<img class="icici-img" alt="wait" src="https://www.bimabazaar.com/wp-content/uploads/2020/04/ICICI-Lombard-General-rolls-out-COVID-19-Protection-Cover.png">
+			<a href="" target="_blank"class="p-icici">Business Companies</a>
+			</div>
+			<div class="under-body-content2">
+			<img class="lic-img" alt="wait" src="https://www.skyheight.in/wp-content/uploads/2021/07/image.png">
+			<a href="" target="_blank" class="p-lic">Personal Healthy</a>
+			</div>
+			<div class="under-body-content3">
+			<img class="star-health-img" alt="wait" src="https://d2un9pqbzgw43g.cloudfront.net/main/product-jpeg-500x500-1.png">
+			<a href="" target="_blank" class="p-star">Life Insurance</a>
+			</div>
+			<div class="under-body-content4">
+			<img class="bajaj-img" alt="wait" src="https://zfund-data-storage.s3.ap-south-1.amazonaws.com/1669115391830">
+			<a href="" target="_blank" class="p-bajaj">Educational Fund</a>
+			</div>
+		</div>
+		<h2 class ="some">Some reasons why we are better than others</h2>
+		<div class="right-some">
+			<p>We provide the most comprehensive protection to you and your family in times of need. It provides financial protection in 
+			case an eventuality strikes. However, to be fully utilized the best star health insurance policies, it is vital to make an informed decision while buying a plan.</p>
+		</div>
+		<p class="our-plan">Our Plan for Your Strategies</p>
+		<p class="under-our-plan">Discover Health Insurance With Opd At Shopwebly! - Easily Found! Easy Access. Quick Results. Many Products. Search and Discover. Compare Products. Find Easily. Types: News, Video, Images, Web, Wiki.</p>
+	</div>
+
+</body>
+</html>
