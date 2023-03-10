@@ -25,8 +25,8 @@ public class Payment {
     @Column(name = "payment_id")
     private int payment_id;
     
-    @Column(name = "pay_via")
-    private String pay_via;
+    @Column(name = "payment_via")
+    private String payment_via;
     
     @Column(name = "policy_start_date")
     private String policy_start_date;
@@ -34,25 +34,67 @@ public class Payment {
     @Column(name = "policy_end_date")
     private String policy_end_date;
     
-    public Payment() {
+    @Column(name = "user_id")
+    private int user_id;
+    
+    @Column(name = "company_id")
+    private int company_id;
+    
+    @Column(name = "mobile_number")
+    private long mobile_number;
+    
+   
+    
+   
+
+	public Payment() {
     	
     }
      
- public Payment(int payment_id , String pay_vai , String policy_start_date , String policy_end_date) {
+ public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,int user_id,int company_id,long mobile_number) {
 	 this.payment_id=payment_id;
-	 this.pay_via=pay_via;
+	 this.payment_via=payment_via;
 	 this.policy_start_date=policy_start_date;
 	 this.policy_end_date=policy_end_date;
+	 this.user_id=user_id;
+	 this.company_id=company_id;
+	 this.mobile_number=mobile_number;
     	
     }
-
-	public String getPay_via() {
-		return pay_via;
+ 
+ public String getPayment_via() {
+		return payment_via;
 	}
 
-	public void setPay_via(String pay_via) {
-		this.pay_via = pay_via;
+	public void setPayment_via(String payment_via) {
+		this.payment_via = payment_via;
 	}
+
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getCompany_id() {
+		return company_id;
+	}
+
+	public void setCompany_id(int company_id) {
+		this.company_id = company_id;
+	}
+
+	public long getMobile_number() {
+		return mobile_number;
+	}
+
+	public void setMobile_number(long mobile_number) {
+		this.mobile_number = mobile_number;
+	}
+
+	
 
 	public String getPolicy_start_date() {
 		return policy_start_date;

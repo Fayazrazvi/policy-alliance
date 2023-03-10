@@ -1,4 +1,6 @@
 package com.perfect.project.entity;
+import org.springframework.context.annotation.Bean;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
