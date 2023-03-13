@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Policy Management System</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+<style type="text/css">
+
+.container-fluid{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 3168px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+
+.header{
+	position:fixed;
+   top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 110px;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 3px 6px #00000029;
+	opacity: 1;
+	z-index: 30;
+}
+.header-img{
+	position:absolute;
+    top: 8px;
+	left: 140px;
+	width: 95px;
+	height: 95px;
+	/* UI Properties */
+	background: transparent url('img/Untitled-1.png') 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.header-text{
+	position:absolute;
+	top: 34px;
+	left: 209px;
+	width: 195px;
+	height: 43px;
+	/* UI Properties */
+	text-align: left;
+	font: normal normal bold 30px/46px Kohinoor Telugu;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1
+}
+#Buy{
+	position:absolute;
+	text-decoration:none;
+    top: 44px;
+	left: 1271px;
+	width: 80px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+
+}
+#Customer{
+	position:absolute;
+	text-decoration:none;
+    top: 44px;
+	left: 1450px;
+	width: 87px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+
+}
+#Register{
+	position:absolute;
+    color: #07539D;
+	top: 35px;
+	left: 1636px;
+	width: 144px;
+	height: 40px;
+	/* UI Properties */
+	background: #07539D 0% 0% no-repeat padding-box;
+	opacity: 1;
+   /* height: 46px;
+    width: 144px;*/
+    padding-top: 7px;
+    padding-left: 39px;
+    font: normal normal normal 20px/23px Arial;
+    color: yellow;
+    text-decoration: none;
+
+}
+#search{
+	position: absolute;
+    top: 67px;
+    left: 407px;
+    width: 36px;
+    height: 36px;
+    background: #FFFAED 0% 0% no-repeat padding-box;
+    opacity: 1;
+    font-size: 40px;
+    color: #707070;
+}
+.body-content{
+	position:absolute;
+	top: 110px;
+	left: 0px;
+	width: 100%;
+	height: 728px;
+	/* UI Properties */
+	background: #FED662 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.search-btn{
+	position: absolute;
+    top: 47px;
+	left: 1368px;
+	width: 169px;
+	height: 70px;
+	background: #FFFAED 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 5px #2020203C;
+	opacity: 1;
+	font-size: 27px;
+    color: #07539D;
+    font-family: arial;
+    border: none;
+}
+.body1{
+	position:absolute;
+	top: 48px;
+	left: 384px;
+	width: 975px;
+	height: 70px;
+	background: #FFFAED 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 5px #2020203C;
+	opacity: 1;	
+	border:none;
+}
+.body-img{
+	position:absolute;
+   	top: 186px;
+	left: 195px;
+	width: 333px;
+	height: 356px;
+	/* UI Properties */
+	background: transparent url('img/Rectangle 72.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+}
+.container-h1{
+	position:absolute;
+    top: 186px;
+	left: 673px;
+	width: 1006px;
+	height: 61px;
+	/* UI Properties */
+	text-align: left;
+	font: normal normal bold 45px/52px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.tax-img{
+	position:absolute;
+    top: 268px;
+	left: 673px;
+	width: 59px;
+	height: 59px;
+	background: transparent url('img/Ellipse 14.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+    border-radius: 39px;
+}
+.tax{
+	position:absolute;
+    top: 281px;
+	left: 750px;
+	width: 341px;
+	height: 33px;
+	/* UI Properties */
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+	opacity: 1;
+}
+.discount{
+	position:absolute;
+    top: 268px;
+	left: 1362px;
+	width: 59px;
+	height: 59px;
+	background: transparent url('img/Ellipse 17.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	border-radius:50%;
+	opacity: 1;
+}
+.p-discount{
+	position:absolute;
+	top: 281px;
+	left: 1439px;
+	width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+	opacity: 1;
+}
+.claim-img{
+	position:absolute;
+	top: 364px;
+	left: 673px;
+	width: 59px;
+	height: 59px;
+	background: transparent url('img/Ellipse 15.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	border-radius:50%;
+	opacity: 1;
+}
+.p-claim{
+	position:absolute;
+	top: 377px;
+	left: 750px;
+	width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+	opacity: 1;
+}
+.commision-img{
+	position:absolute;
+	top: 364px;
+	left: 1362px;
+	width: 59px;
+	height: 59px;
+	background: transparent url('img/Ellipse 16.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	border-radius:50%;
+	opacity: 1;
+}
+.p-commision{
+	position:absolute;
+	top: 377px;
+	left: 1439px;
+	width: 341px;
+	height: 33px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #1278DB;
+	opacity: 1;
+}
+.get-start{
+	position:absolute;
+	top: 460px;
+	left: 674px;
+	width: 181px;
+	height: 40px;
+	/* UI Properties */
+	background: #07539D 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 5px #2020203C;
+	opacity: 1;
+    color: white;
+    border: none;
+}
+.under-body-content{
+	position:absolute;
+    top: 726px;
+	left: 140px;
+	width: 1640px;
+	height: 387px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	border: 1px solid #FFFFFF;
+	opacity: 1;
+}
+.under-body-content1{
+	position:absolute;
+	top: 75px;
+	left: 46px;
+	width: 330px;
+	height: 229px;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.icici-img{
+	position:absolute;
+	top: 43px;
+	left: 117px;
+	width: 97px;
+	height: 97px;
+	background: transparent url('img/Ellipse 1.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+	border-radius:50%;
+}
+.p-icici{
+	position:absolute;
+	top: 159px;
+	left: 48px;
+	width: 235px;
+	height: 28px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+	text-decoration:none;
+}
+.under-body-content2{
+	position:absolute;
+	top: 75px;
+	left: 459px;
+	width: 330px;
+	height: 229px;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.lic-img{
+	position:absolute;
+	top: 43px;
+	left: 117px;
+	width: 97px;
+	height: 97px;
+	background: transparent url('img/Ellipse 2.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+	border-radius:50%;
+}
+.p-lic{
+	position:absolute;
+	top: 159px;
+	left: 70px;
+	width: 191px;
+	height: 28px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+	text-decoration:none;
+}
+.under-body-content3{
+	position:absolute;
+	top: 75px;
+	left: 842px;
+	width: 330px;
+	height: 229px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.star-health-img{
+	position:absolute;
+	top: 43px;
+	left: 117px;
+	width: 97px;
+	height: 97px;
+	background: transparent url('img/Ellipse 3.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+	border-radius:50%;
+}
+.p-star{
+	position:absolute;
+	top: 159px;
+	left: 87px;
+	width: 158px;
+	height: 28px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+	text-decoration:none;
+}
+.under-body-content4{
+	position:absolute;
+	top: 75px;
+	left: 1226px;
+	width: 330px;
+	height: 229px;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	opacity: 1;
+}
+.bajaj-img{
+	position:absolute;
+	top: 43px;
+	left: 117px;
+	width: 97px;
+	height: 97px;
+	background: transparent url('img/Ellipse 4.png') 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+	border-radius:50%;
+}
+.p-bajaj{
+	position:absolute;
+	top: 159px;
+	left: 68px;
+	width: 195px;
+	height: 28px;
+	text-align: left;
+	font: normal normal normal 25px/29px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+	text-decoration:none;
+}
+.some{
+	position:absolute;
+	top: 1173px;
+	left: 232px;
+	width: 528px;
+	height: 126px;
+	text-align: left;
+	font: normal normal normal 50px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.right-some{
+	position:absolute;
+	top: 1161px;
+	left: 909px;
+	width: 780px;
+	height: 150px;
+	text-align: left;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.our-plan{
+	position:absolute;
+	top: 1401px;
+	left: 660px;
+	width: 601px;
+	height: 51px;
+	text-align: left;
+	font: normal normal bold 45px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.under-our-plan{
+	position:absolute;
+	top: 1471px;
+	left: 570px;
+	width: 780px;
+	height: 55px;
+	text-align: center;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.plans{
+	position:absolute;
+	top: 1545px;
+	left: 771px;
+	width: 379px;
+	height: 60px;
+	background: #07539D 0% 0% no-repeat padding-box;
+	border: 0.5px solid #014A71;
+	opacity: 1;
+}
+.anual-plan{
+	margin-left:9px;
+	width: 173px;
+	height: 45px;
+	color:blue;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 0.5px solid #014A71;
+	opacity: 1;
+}
+.month-plan{
+	width: 183px;
+    height: 56px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.under-plans1{
+	position:absolute;
+	top: 1670px;
+	left: 224px;
+	width: 450px;
+	height: 551px;
+	background: #D3E9FF 0% 0% no-repeat padding-box;
+	opacity: 1;
+	
+}
+.lite-plan{
+	position:absolute;
+	top: 43px;
+	left: 162px;
+	width: 126px;
+	height: 33px;
+	text-align: center;
+	font: normal normal bold 30px/25px Arial;
+	letter-spacing: 0px;
+	color: #014A71;
+	opacity: 1;
+}
+.p-lite-plan{
+	position:absolute;
+	top: 105px;
+	left: 61px;
+	width: 328px;
+	height: 79px;
+	/* UI Properties */
+	text-align: center;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.plan-price1{
+	position:absolute;
+	top: 213px;
+	left: 111px;
+	width: 156px;
+	height: 44px;
+	/* UI Properties */
+	text-align: center;
+	letter-spacing: NaNpx;
+	color: #014A71;
+	opacity: 1;
+	font: normal normal bold 40px/25px Arial;
+	color: #014A71;
+}
+.plan-list{
+	position:absolute;
+	top: 303px;
+	left: 105px;
+	width: 328px;
+	height: 18px;
+	text-align: left;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.select-plan1{
+	position:absolute;
+    top: 452px;
+	left: 113px;
+	width: 225px;
+	height: 40px;
+	background: #98D6F7 0% 0% no-repeat padding-box;
+	border:none;
+	color:#014A71;
+	opacity: 1
+}
+.under-plans2{
+	position:absolute;
+	top: 1670px;
+	left: 736px;
+	width: 450px;
+	height: 551px;
+	background: #FED662 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.basic-plan{
+	position:absolute;
+	top: 43px;
+	left: 149px;
+	width: 152px;
+	height: 33px;
+	text-align: center;
+	font: normal normal bold 30px/25px Arial;
+	letter-spacing: 0px;
+	color: #014A71;
+	opacity: 1;
+}
+.p-basic-plan{
+	position:absolute;
+	top: 105px;
+	left: 61px;
+	width: 328px;
+	height: 79px;
+	text-align: center;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.plan-price2{
+	position:absolute;
+	top: 213px;
+	left: 111px;
+	width: 156px;
+	height: 44px;
+	text-align: center;
+	font: normal normal bold 40px/25px Arial;
+	text-align: center;
+	letter-spacing: NaNpx;
+	color: #014A71;
+	opacity: 1;
+}
+.select-plan2{
+	position:absolute;
+	top: 452px;
+    left: 113px;
+	width: 225px;
+	height: 40px;
+	background: #07539D 0% 0% no-repeat padding-box;
+	color:white;
+	border:none;
+	opacity: 1;
+}
+.under-plans3{
+	position:absolute;
+	top: 1670px;
+	left: 1261px;
+	width: 450px;
+	height: 551px;
+	background: #D3E9FF 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.premium-plan{
+	position: absolute;
+    top: 43px;
+    left: 112px;
+    width: 201px;
+    height: 33px;
+    text-align: center;
+    font: normal normal bold 30px/25px Arial;
+    letter-spacing: 0px;
+    color: #014A71;
+    opacity: 1;
+}
+.p-premium-plan{
+	position:absolute;
+	top: 105px;
+    left: 61px;
+	width: 328px;
+	height: 79px;
+	text-align: center;
+	font: normal normal normal 16px/25px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+}
+.plan-price3{
+	position:absolute;
+	top: 213px;
+    left: 111px;
+	width: 156px;
+	height: 44px;
+	text-align: center;
+	font: normal normal bold 40px/25px Arial;
+	letter-spacing: 0px;
+	color: #014A71;
+	opacity: 1;
+}
+.select-plan3{
+	position:absolute;
+	top: 452px;
+    left: 113px;
+	width: 225px;
+	height: 40px;
+	background: #98D6F7 0% 0% no-repeat padding-box;
+	border:none;
+	color:#014A71;
+	opacity: 1;
+}
+.recommend{
+	position:absolute;
+	top: 2332px;
+	left: 140px;
+	width: 671px;
+	height: 51px;
+	text-align: left;
+	font: normal normal bold 45px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.company1{
+	position:absolute;
+	top: 2435px;
+	left: 150px;
+	width: 300px;
+	height: 187px;
+	/* UI Properties */
+	background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	border: 1px solid #FFFFFF;
+	opacity: 1;
+}
+.star{
+	position:absolute;
+	top: 2642px;
+	left: 150px;
+	width: 256px;
+	height: 23px;
+	text-align: left;
+	font: normal normal bold 20px/23px Arial;
+	letter-spacing: 0px;
+	text-decoration:none;
+	color: #000000;
+	opacity: 1;
+}
+.p-base{
+	position:absolute;
+	top: 2673px;
+	left: 150px;
+	width: 338px;
+	height: 23px;
+	text-align: left;
+	font: normal normal normal 16px/18px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+	
+}
+#star-icon1{
+	position:absolute;
+	top: 2706px;
+	left: 150px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#star-icon2{
+	position:absolute;
+	top: 2706px;
+	left: 175px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#star-icon3{
+	position:absolute;
+	top: 2706px;
+	left: 200px;
+	width: 20px;
+	height: 19px;
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#star-icon4{
+	position:absolute;
+	top: 2706px;
+	left: 225px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#star-icon5{
+	position:absolute;
+	top: 2706px;
+	left: 250px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+</style>
+
+
+
+</head>
+<body onload = "process()">
+<div class="container-fluid">
+		<div class="header">
+			<div >
+				<img class="header-img" src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
+				<h1 class="header-text" >Policyalliance</h1>
+			</div>
+			<a href=""  id="Buy">Buy Now</a>
+			<a href="" id="Customer">Customer</a>
+			<a href="" id="Register">Register</a>
+		</div>
+		<div class="body-content">
+			<input class="body1" type="search" placeholder=""  />
+			<div >
+			<span class="material-icons" id="search">search</span>
+			</div>
+			<button class="search-btn">Search</button>
+			<img class="body-img" src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=1200:*">
+			<h1 class="container-h1">Term Insurance And Investment Plans</h1>
+			<img class="tax-img" src="https://www.adityabirlacapital.com/abc-of-money/-/media/Project/ABCL/Internal_Images_526x230/526x230/TX/Best_Tips_for_Tax_Saving_in_FY_2020-21_526_230_M_TX_280.svg">
+			<p class="tax">Tax Saving upto Rs 46,800</p>
+			<img class="discount" src="https://www.shutterstock.com/image-illustration/5-percent-off-3d-sign-260nw-1490566286.jpg">
+            <p class="p-discount" >5% Discount</p>
+            <img class="claim-img" alt="wait" src="https://www.maxlifeinsurance.com/static-page/assets/homepage/new_claim_mobile_ce97cf462c.jpg">
+            <p class="p-claim" >99.34% Claims Paid Ratio</p>
+            <img class="commision-img" alt="wait" src="https://www.shutterstock.com/image-vector/zero-commission-seal-stamp-corroded-260nw-1146050606.jpg">
+            <p class="p-commision">Zero Commision</p>
+           <a href="#"><button class="get-start" >Get Start</button></a> 
+		</div>
+		<div class="under-body-content">
+			<div class="under-body-content1">
+			<img class="icici-img" alt="wait" src="https://www.bimabazaar.com/wp-content/uploads/2020/04/ICICI-Lombard-General-rolls-out-COVID-19-Protection-Cover.png">
+			<a href="" target="_blank"class="p-icici">Business Companies</a>
+			</div>
+			<div class="under-body-content2">
+			<img class="lic-img" alt="wait" src="https://www.skyheight.in/wp-content/uploads/2021/07/image.png">
+			<a href="" target="_blank" class="p-lic">Personal Healthy</a>
+			</div>
+			<div class="under-body-content3">
+			<img class="star-health-img" alt="wait" src="https://d2un9pqbzgw43g.cloudfront.net/main/product-jpeg-500x500-1.png">
+			<a href="" target="_blank" class="p-star">Life Insurance</a>
+			</div>
+			<div class="under-body-content4">
+			<img class="bajaj-img" alt="wait" src="https://zfund-data-storage.s3.ap-south-1.amazonaws.com/1669115391830">
+			<a href="" target="_blank" class="p-bajaj">Educational Fund</a>
+			</div>
+		</div>
+		<h2 class ="some">Some reasons why we are better than others</h2>
+		<div class="right-some">
+			<p>We provide the most comprehensive protection to you and your family in times of need. It provides financial protection in 
+			case an eventuality strikes. However, to be fully utilized the best star health insurance policies, it is vital to make an informed decision while buying a plan.</p>
+		</div>
+		<p class="our-plan">Our Plan for Your Strategies</p>
+		<p class="under-our-plan">Discover Health Insurance With Opd At Shopwebly! - Easily Found! Easy Access. Quick Results. Many Products. Search and Discover. Compare Products. Find Easily. Types: News, Video, Images, Web, Wiki.</p>
+		<div class="plans">
+			<a href=""><button class="anual-plan">Annually Plans</button></a>
+			<a href=""><button class="month-plan">Monthly Plans</button></a>
+		</div>
+		<div class="under-plans1">
+			<p class="lite-plan">Lite Plan</p>
+			<p class="p-lite-plan">Lite Plan allows you and your family to purchase affordable short-term medical coverage for physician services, surgery, outpatient and inpatient care.</p>
+			<p class="plan-price1">$150/month</p>
+			<ul class="plan-list">
+				<li>3 Months of Care</li>
+				<li>4 Part health plan</li>
+				<li>Health plan update</li>
+			</ul>
+			<a href=""><button class="select-plan1">Select Plan</button></a>
+		</div>
+		<div class="under-plans2">
+			<p class="basic-plan">Basic Plan</p>
+			<p class="p-basic-plan">One can add value to the Base Health Insurance Plan by complementing them with additional benefits such as Personal Accident (PA) Cover, Critical Illness (CI) Cover, etc.</p>
+			<p class="plan-price2">$250/month</p>
+			<ul class="plan-list">
+				<li>12 Months of Care</li>
+				<li>12 Part health plan</li>
+				<li>Health plan update</li>
+			</ul>
+			<a href=""><button class="select-plan2">Select Plan</button></a>
+		</div>
+		<div class="under-plans3">
+			<p class="premium-plan"> Premium Plan</p>
+			<p class="p-premium-plan">Premium plans offer coverage against several types of 
+			                          ailments and surgeries, along with other aspects of medical treatment</p>
+			<p class="plan-price3">$500/month</p>
+			<ul class="plan-list">
+				<li>Unlimited of Care</li>
+				<li>50 Part health plan</li>
+				<li>Health plan update</li>
+			</ul>
+			<a href=""><button class="select-plan3">Select Plan</button></a>
+		</div>
+		<p class="recommend">Top Recommended Companies</p>
+		<div class="company-list1">
+			<img class="company1" alt="wait" src="https://d28c6jni2fmamz.cloudfront.net/star_health_logo_big_77cff254bd.svg">
+			<a href="https://www.starhealth.in/" target="_blank" class="star">Star Health Insurance</a>
+			<p class="p-base">Base plan</p>
+			<span class="material-icons" id="star-icon1">star_outline</span>
+			<span class="material-icons" id="star-icon2">star_outline</span>
+			<span class="material-icons" id="star-icon3">star_outline</span>
+			<span class="material-icons" id="star-icon4">star_outline</span>
+			<span class="material-icons" id="star-icon5">star_outline</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var jsonData = {};
+		function process() {
+			$.ajax({
+				type : "POST",
+				headers : {
+					'Content-Type' : 'application/json'
+				},
+				crossDomain : true,
+				url : "/home/check",
+				success : function(response) {
+					jsonData = response;
+					console.log(jsonData);
+					console.log("hiii")
+				},
+				error : function() {
+				}
+			});
+		}
+	</script>
+</body>
+</html>
