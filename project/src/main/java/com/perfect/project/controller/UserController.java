@@ -39,6 +39,18 @@ public class UserController {
 		return "users";
 	}
 	
+	@GetMapping("/register")
+	public String register(Model model ) {
+		model.addAttribute("register",userService.getAllCustomers());
+		return "register";
+	}
+	
+	@GetMapping("/company")
+	public String companies(Model model ) {
+		model.addAttribute("company",userService.getAllCustomers());
+		return "company";
+	}
+	
 	
 //	@GetMapping("/test")
 //	public String listUsers(Model model ) {
@@ -56,14 +68,14 @@ public class UserController {
 		return data;
 	}
 	
-//	@PostMapping("/outNew")
-//	@ResponseBody
-//	public String display()
-//	{
-//		Map<String, Object> on=userService.getCustomers();
-//		String data2 =new Gson().toJson(on);
-//		return data2;
-//	}
+	@PostMapping("/outNew")
+	@ResponseBody
+	public String display()
+	{
+		Map<String, Object> on=userService.getCustomers();
+		String data2 =new Gson().toJson(on);
+		return data2;
+	}
 
 	
 	

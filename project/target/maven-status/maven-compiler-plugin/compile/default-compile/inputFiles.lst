@@ -1,8 +1,8 @@
-D:\project\project\src\main\java\com\perfect\project\controller\UserController.java
-D:\project\project\src\main\java\com\perfect\project\ProjectApplication.java
-D:\project\project\src\main\java\com\perfect\project\service\impl\UserServiceImpl.java
-D:\project\project\src\main\java\com\perfect\project\entity\Payment.java
-D:\project\project\src\main\java\com\perfect\project\entity\User.java
-D:\project\project\src\main\java\com\perfect\project\repository\UserRepository.java
-D:\project\project\src\main\java\com\perfect\project\service\UserService.java
-D:\project\project\src\main\java\com\perfect\project\entity\Company.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\repository\UserRepository.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\ProjectApplication.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\service\impl\UserServiceImpl.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\entity\Company.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\entity\Payment.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\controller\UserController.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\entity\User.java
+D:\MyMiniProject\policy-alliance\project\src\main\java\com\perfect\project\service\UserService.java

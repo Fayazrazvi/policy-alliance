@@ -22,7 +22,7 @@ public class UserServiceImpl {
 	
 	@Autowired
 	UserRepository userRepository;
-	private static final Logger logger=LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger=LoggerFactory.getLogger(UserServiceImpl.class);
 	
 
 	public Map<String , Object> getAllCustomers(){
@@ -33,11 +33,11 @@ public class UserServiceImpl {
 		return p;
 	}
 	
-//	public Map<String, Object> getCustomers() {
-//		Map<String, Object> r = new HashMap<>();
-//		List<Map<String, Object>> dataOut = userRepository.out();
-//		r.put("company_details", dataOut);
-//		return r;
-//	}
+	public Map<String, Object> getCustomers() {
+		Map<String, Object> r = new HashMap<>();
+		List<Map<String, Object>> dataOut = userRepository.display();
+		r.put("company_details", dataOut);
+		return r;
+	}
 
 }

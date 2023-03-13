@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Policy Management System</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<style type="text/css">
+
+.container-fluid{
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 1118px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+
+.header{
+	position:fixed;
+   top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 110px;
+	/* UI Properties */
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 3px 6px #00000029;
+	opacity: 1;
+	z-index: 30;
+}
+.header-img{
+	position:absolute;
+    top: 8px;
+	left: 140px;
+	width: 95px;
+	height: 95px;
+	/* UI Properties */
+	background: transparent url('img/Untitled-1.png') 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.header-text{
+	position:absolute;
+	top: 34px;
+	left: 209px;
+	width: 195px;
+	height: 43px;
+	/* UI Properties */
+	text-align: left;
+	font: normal normal bold 30px/46px Kohinoor Telugu;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1
+}
+#Buy{
+	position:absolute;
+	text-decoration:none;
+    top: 44px;
+	left: 1271px;
+	width: 104px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+    border: none;
+    background-color: white;
+	opacity: 1;
+
+}
+#Customer{
+	position:absolute;
+	text-decoration:none;
+    top: 44px;
+	left: 1450px;
+	width: 87px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	border: none;
+    background-color: white;
+	opacity: 1;
+
+}
+#account{
+	position:absolute;
+	top: 31px;
+	left: 1636px;
+	width: 50px;
+	height: 50px;
+	font-size: 55px;
+    color: gray;
+	opacity: 1;
+}
+.p-fayaz{
+	position:absolute;
+	top: 45px;
+	left: 1696px;
+	width: 87px;
+	height: 22px;
+	text-align: left;
+	font: normal normal bold 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+#search{
+	position: absolute;
+    top: 67px;
+    left: 407px;
+    width: 36px;
+    height: 36px;
+    background: #FFFAED 0% 0% no-repeat padding-box;
+    opacity: 1;
+    font-size: 40px;
+    color: #707070;
+}
+.body-content{
+	position:absolute;
+	top: 110px;
+	left: 0px;
+	width: 100%;
+	height: 148px;
+	/* UI Properties */
+	background: #FED662 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.body1{
+	position:absolute;
+	top: 48px;
+	left: 384px;
+	width: 975px;
+	height: 70px;
+	background: #FFFAED 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 5px #2020203C;
+	opacity: 1;	
+	border:none;
+}
+.search-btn{
+	position: absolute;
+    top: 47px;
+	left: 1368px;
+	width: 169px;
+	height: 70px;
+	background: #FFFAED 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 5px #2020203C;
+	opacity: 1;
+	font-size: 27px;
+    color: #07539D;
+    font-family: arial;
+    border: none;
+}
+.p-companies{
+	position:absolute;
+	top: 278px;
+	left: 140px;
+	width: 189px;
+	height: 39px;
+	text-align: left;
+	font: normal normal bold 35px/70px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.company-list{
+	position:absolute;
+	top:20px;
+	left:0px;
+	box-shadow: 0px 0px 15px #00000033;
+}
+.company1{
+	position:absolute;
+	top:337px;
+	left: 140px;
+	width: 300px;
+	height: 187px;
+	/* UI Properties */
+	background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+	box-shadow: 0px 2px 6px #00000029;
+	border: 1px solid #FFFFFF;
+	opacity: 1;
+}
+.star1{
+	position:absolute;
+	top: 539px;
+	left: 151px;
+	width: 256px;
+	height: 23px;
+	text-align: left;
+	font: normal normal bold 20px/23px Arial;
+	letter-spacing: 0px;
+	text-decoration:none;
+	color: #000000;
+	opacity: 1;
+}
+.p-base1{
+	position:absolute;
+	top: 570px;
+	left: 151px;
+	width: 338px;
+	height: 23px;
+	text-align: left;
+	font: normal normal normal 16px/18px Arial;
+	letter-spacing: 0px;
+	color: #000000;
+	opacity: 1;
+	
+}
+#company1-star-icon1{
+	position:absolute;
+	top: 603px;
+	left: 151px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#company1-star-icon2{
+	position:absolute;
+	top: 603px;
+	left: 176px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#company1-star-icon3{
+	position:absolute;
+	top: 603px;
+	left: 201px;
+	width: 20px;
+	height: 19px;
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#company1-star-icon4{
+	position:absolute;
+	top: 603px;
+	left: 226px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+#company1-star-icon5{
+	position:absolute;
+	top: 603px;
+	left: 251px;
+	width: 20px;
+	height: 19px;
+	/* UI Properties */
+	background:  0% 0% no-repeat padding-box;
+	color:#F26F20;
+	opacity: 1;
+	cursor:pointer;
+}
+.company1-price{
+	position:absolute;
+	top: 588px;
+	left: 348px;
+	width: 88px;
+	height: 34px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 1px solid #07539D;
+	opacity: 1;
+}
+.p-company1-price{
+	position:absolute;
+	top: 6px;
+	left: 7px;
+	width: 74px;
+	height: 18px;
+	text-align: left;
+	font: normal normal normal 16px/18px Arial;
+	letter-spacing: 0px;
+	color: #07539D;
+	opacity: 1;
+}
+.company1-buy-btn{
+	position:absolute;
+	top: 649px;
+	left: 140px;
+	width: 300px;
+	height: 40px;
+	background: #07539D 0% 0% no-repeat padding-box;
+	color:white;
+	border:none;
+	opacity: 1;
+}
+.company2{
+    position: absolute;
+    top: 337px;
+    left: 474px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.icici{
+    position: absolute;
+    top: 539px;
+    left: 485px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration:none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base2{
+    position: absolute;
+    top: 570px;
+    left: 485px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company2-star-icon1{
+    position: absolute;
+    top: 603px;
+    left: 485px;
+    width: 20px;
+    height: 19px;
+    background:0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company2-star-icon2{
+    position: absolute;
+    top: 603px;
+    left: 510px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company2-star-icon3{
+    position: absolute;
+    top: 603px;
+    left: 535px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company2-star-icon4{
+    position: absolute;
+    top: 603px;
+    left: 560px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company2-star-icon5{
+    position: absolute;
+    top: 603px;
+    left: 585px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company2-price{
+    position: absolute;
+    top: 588px;
+    left: 682px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company2-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company2-buy-btn{
+    position: absolute;
+    top: 649px;
+    left: 474px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company3{
+    position: absolute;
+    top: 337px;
+    left: 808px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.lic{
+    position: absolute;
+    top: 539px;
+    left: 819px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base3{
+    position: absolute;
+    top: 570px;
+    left: 819px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company3-star-icon1{
+    position: absolute;
+    top: 603px;
+    left: 819px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company3-star-icon2{
+    position: absolute;
+    top: 603px;
+    left: 844px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company3-star-icon3{
+    position: absolute;
+    top: 603px;
+    left: 869px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company3-star-icon4{
+    position: absolute;
+    top: 603px;
+left: 894px;
+width: 20px;
+height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company3-star-icon5{
+    position: absolute;
+    top: 603px;
+left: 919px;
+width: 20px;
+height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company3-price{
+    position: absolute;
+    top: 588px;
+	left: 1016px;
+    width: 88px;
+	height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company3-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company3-buy-btn{
+    position: absolute;
+    top: 649px;
+    left: 808px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company4{
+    position: absolute;
+    top: 337px;
+    left: 1142px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.bajaj{
+    position: absolute;
+    top: 539px;
+    left: 1153px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base4{
+    position: absolute;
+    top: 570px;
+    left: 1153px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company4-star-icon1{
+    position: absolute;
+    top: 603px;
+    left: 1153px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company4-star-icon2{
+    position: absolute;
+    top: 603px;
+    left: 1178px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company4-star-icon3{
+    position: absolute;
+    top: 603px;
+    left: 1203px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company4-star-icon4{
+    position: absolute;
+    top: 603px;
+    left: 1228px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company4-star-icon5{
+    position: absolute;
+    top: 603px;
+    left: 1253px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company4-price{
+    position: absolute;
+    top: 588px;
+    left: 1350px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company4-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company4-buy-btn{
+    position: absolute;
+    top: 649px;
+    left: 1142px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company5{
+    position: absolute;
+    top: 337px;
+    left: 1476px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.royal-sundaram{
+    position: absolute;
+    top: 539px;
+    left: 1487px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base5{
+    position: absolute;
+    top: 570px;
+    left: 1487px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company5-star-icon1{
+    position: absolute;
+    top: 603px;
+    left: 1487px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company5-star-icon2{
+    position: absolute;
+    top: 603px;
+    left: 1512px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company5-star-icon3{
+    position: absolute;
+    top: 603px;
+    left: 1537px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company5-star-icon4{
+    position: absolute;
+    top: 603px;
+    left: 1562px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company5-star-icon5{
+    position: absolute;
+    top: 603px;
+    left: 1253px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company5-price{
+    position: absolute;
+    top: 588px;
+    left: 1684px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company5-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company5-buy-btn{
+    position: absolute;
+    top: 649px;
+    left: 1476px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company6{
+    position: absolute;
+    top: 719px;
+    left: 140px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.aditya-birla{
+    position: absolute;
+    top: 921px;
+    left: 151px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base6{
+    position: absolute;
+    top: 952px;
+    left: 151px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company6-star-icon1{
+    position: absolute;
+    top: 985px;
+    left: 151px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company6-star-icon2{
+    position: absolute;
+    top: 985px;
+    left: 176px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company6-star-icon3{
+    position: absolute;
+    top: 985px;
+    left: 201px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company6-star-icon4{
+    position: absolute;
+    top: 985px;
+    left: 226px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company6-star-icon5{
+    position: absolute;
+    top: 985px;
+    left: 251px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company6-price{
+    position: absolute;
+    top: 970px;
+    left: 348px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company6-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company6-buy-btn{
+    position: absolute;
+    top: 1031px;
+    left: 140px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company7{
+    position: absolute;
+    top: 719px;
+    left: 474px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.hdfc{
+    position: absolute;
+    top: 921px;
+    left: 485px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base7{
+    position: absolute;
+    top: 952px;
+    left: 485px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company7-star-icon1{
+    position: absolute;
+    top: 985px;
+    left: 485px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company7-star-icon2{
+    position: absolute;
+    top: 985px;
+    left: 516px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company7-star-icon3{
+    position: absolute;
+    top: 985px;
+    left: 535px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company7-star-icon4{
+    position: absolute;
+    top: 985px;
+    left: 560px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company7-star-icon5{
+    position: absolute;
+    top: 985px;
+    left: 585px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company7-price{
+    position: absolute;
+    top: 970px;
+    left: 682px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company7-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company7-buy-btn{
+    position: absolute;
+    top: 1031px;
+    left: 474px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company8{
+    position: absolute;
+    top: 719px;
+    left: 808px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.tata{
+    position: absolute;
+    top: 921px;
+    left: 819px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base8{
+    position: absolute;
+    top: 952px;
+    left: 819px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company8-star-icon1{
+    position: absolute;
+    top: 985px;
+    left: 819px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company8-star-icon2{
+    position: absolute;
+    top: 985px;
+    left: 844px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company8-star-icon3{
+    position: absolute;
+    top: 985px;
+    left: 869px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company8-star-icon4{
+    position: absolute;
+    top: 985px;
+    left: 894px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company8-star-icon5{
+    position: absolute;
+    top: 985px;
+    left: 919px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company8-price{
+    position: absolute;
+    top: 970px;
+    left: 1016px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company8-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company8-buy-btn{
+    position: absolute;
+    top: 1031px;
+    left: 808px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company9{
+    position: absolute;
+    top: 719px;
+    left: 1142px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.laya{
+    position: absolute;
+    top: 921px;
+    left: 1153px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base9{
+    position: absolute;
+    top: 952px;
+    left: 1153px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company9-star-icon1{
+    position: absolute;
+    top: 985px;
+    left: 1153px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company9-star-icon2{
+    position: absolute;
+    top: 985px;
+    left: 1178px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company9-star-icon3{
+    position: absolute;
+    top: 985px;
+    left: 1203px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company9-star-icon4{
+    position: absolute;
+    top: 985px;
+    left: 1228px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company9-star-icon5{
+    position: absolute;
+    top: 985px;
+    left: 1253px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company9-price{
+    position: absolute;
+    top: 970px;
+    left: 1350px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company9-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company9-buy-btn{
+    position: absolute;
+    top: 1031px;
+    left: 1142px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+.company10{
+    position: absolute;
+    top: 719px;
+    left: 1476px;
+    width: 300px;
+    height: 187px;
+    background: transparent url('img/Rectangle 35.png') 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 6px #00000029;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+}
+.kotak{
+    position: absolute;
+    top: 921px;
+    left: 1487px;
+    width: 256px;
+    height: 23px;
+    text-align: left;
+    text-decoration: none;
+    font: normal normal bold 20px/23px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+.p-base10{
+    position: absolute;
+    top: 952px;
+    left: 1487px;
+    width: 82px;
+    height: 23px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    }
+#company10-star-icon1{
+    position: absolute;
+    top: 985px;
+    left: 1487px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company10-star-icon2{
+    position: absolute;
+    top: 985px;
+    left: 1512px;
+    width: 20px;
+    height: 19px;
+    background: 0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company10-star-icon3{
+    position: absolute;
+    top: 985px;
+    left: 1537px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company10-star-icon4{
+    position: absolute;
+    top: 985px;
+    left: 1562px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+#company10-star-icon5{
+    position: absolute;
+    top: 985px;
+    left: 1587px;
+    width: 20px;
+    height: 19px;
+    background:  0% 0% no-repeat padding-box;
+    color:#F26F20;
+    opacity: 1;
+
+}
+.company10-price{
+    position: absolute;
+    top: 970px;
+    left: 1684px;
+    width: 88px;
+    height: 34px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #07539D;
+    opacity: 1;
+}
+.p-company10-price{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 74px;
+    height: 18px;
+    text-align: left;
+    font: normal normal normal 16px/18px Arial;
+    letter-spacing: 0px;
+    color: #07539D;
+    opacity: 1;
+}
+.company10-buy-btn{
+    position: absolute;
+    top: 1031px;
+    left: 1476px;
+    width: 300px;
+    height: 40px;
+    background: #07539D 0% 0% no-repeat padding-box;
+    opacity: 1;
+    border: none;
+    color: white;
+}
+</style>
+</head>
+<body onload = "process()">
+	<div class="container-fluid">
+		<div class="header">
+			<div>
+				<img class="header-img"
+					src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
+				<h1 class="header-text">Policyalliance</h1>
+			</div>
+			<a href=""><button id="Buy">Buy Now</button></a> 
+			<a href=""><button id="Customer">Customer</button></a>
+			<span class="material-icons" id="account">account_circle</span>
+			<p class="p-fayaz">Hi,Fayaz</p>
+		</div>
+		<div class="body-content">
+			<input class="body1" type="search" placeholder="" />
+			<div>
+				<span class="material-icons" id="search">search</span>
+			</div>
+			<button class="search-btn">Search</button>
+		</div>
+		<div class="companies">
+			<p class="p-companies">Companies</p>
+			<div class="company-list">
+				<img class="company1" alt="wait" src="https://d28c6jni2fmamz.cloudfront.net/star_health_logo_big_77cff254bd.svg">
+				<a href="https://www.starhealth.in/" target="_blank" class="star1">Star Health Insurance</a>
+				<p class="p-base1">Base plan</p>
+				<span class="material-icons" id="company1-star-icon1">star_outline</span>
+				<span class="material-icons" id="company1-star-icon2">star_outline</span>
+				<span class="material-icons" id="company1-star-icon3">star_outline</span>
+				<span class="material-icons" id="company1-star-icon4">star_outline</span>
+				<span class="material-icons" id="company1-star-icon5">star_outline</span>
+				<div class="company1-price">
+					<p class="p-company1-price">$1500/pm</p>
+				</div>
+				<button class="company1-buy-btn">buy</button>
+				
+				
+				<img class="company2" alt="wait" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV-U3tops4NSoTQ_4pJyvBWiHPlk5mATyIQA&usqp=CAU">
+				<a href="https://www.icicilombard.com/health-insurance/health-advantedge-insurance-for-family?
+				utm_source=google_search&utm_medium=CPC&utm_campaign=Health_Search_Brand_Exact&utm_adgroup=ICICI_Lombard_Health_Insurance&utm_keyword=icici%
+				20lombard%20health%20insurance&utm_device=c&utm_ad=331516013032&utm_placement=&utm_network=g&utm_matchtype=e&gclid=Cj0KCQjwk7ugBhDIARIsAGuvgPbz9BZ5mVuFMw8zB5DCBs0pLyx-kK-f6vqpReiVrwfLbS_SKd-5ikwaAtjCEALw_wcB" 
+				target="_blank" class="icici">ICICI Lambord</a>
+				<p class="p-base2">Base plan</p>
+				<span class="material-icons" id="company2-star-icon1">star_outline</span>
+				<span class="material-icons" id="company2-star-icon2">star_outline</span>
+				<span class="material-icons" id="company2-star-icon3">star_outline</span>
+				<span class="material-icons" id="company2-star-icon4">star_outline</span>
+				<span class="material-icons" id="company2-star-icon5">star_outline</span>
+				<div class="company2-price">
+					<p class="p-company2-price">$1000/pm</p>
+				</div>
+				<button class="company2-buy-btn">buy</button>
+				
+				
+				<img class="company3" alt="wait" src="https://www.skyheight.in/wp-content/uploads/2021/07/image.png">
+				<a href="https://licindia.in/Home/buypoliciesonline?gclid=Cj0KCQjwk7ugBhDIARIsAGuvg
+				PbBIdgjrXGU6r5wqx0dM9ATf7Bru1nAAW2A4gJLisibt9eC4FWHnxUaAtsrEALw_wcB" target="_blank" class="lic">LIC</a>
+				<p class="p-base3">Base plan</p>
+				<span class="material-icons" id="company3-star-icon1">star_outline</span>
+				<span class="material-icons" id="company3-star-icon2">star_outline</span>
+				<span class="material-icons" id="company3-star-icon3">star_outline</span>
+				<span class="material-icons" id="company3-star-icon4">star_outline</span>
+				<span class="material-icons" id="company3-star-icon5">star_outline</span>
+				<div class="company3-price">
+					<p class="p-company3-price">$500/pm</p>
+				</div>
+				<button class="company3-buy-btn">buy</button>
+				
+				
+				<img class="company4" alt="wait" src="https://www.wishpolicy.com/wp-content/uploads/2020/02/Bajaj-Allianz-General-Insurance-Health-Infinity-Policy.jpg">
+				<a href="https://www.bajajfinservmarkets.in/insurance/health-insurance.html" target="_blank" class="bajaj">Bajaj Health Insurance</a>
+				<p class="p-base4">Base plan</p>
+				<span class="material-icons" id="company4-star-icon1">star_outline</span>
+				<span class="material-icons" id="company4-star-icon2">star_outline</span>
+				<span class="material-icons" id="company4-star-icon3">star_outline</span>
+				<span class="material-icons" id="company4-star-icon4">star_outline</span>
+				<span class="material-icons" id="company4-star-icon5">star_outline</span>
+				<div class="company4-price">
+					<p class="p-company4-price">$1500/pm</p>
+				</div>
+				<button class="company4-buy-btn">buy</button>
+				
+				
+				<img class="company5" alt="wait" src="https://image3.mouthshut.com/images/imagesp/925048029s.gif">
+				<a href="https://www.royalsundaram.in/health-insurance/lifeline?ef_id=Cj0KCQjwk7ugBhDIARIsAGuvgPYnl-tC3afi4T3EpYsuGXWKs43K_mVj8orzFiB8_Ua4kNft4t1UdnoaAoNqEALw
+				_wcB:G:s&utm_source=google&utm_medium=search&utm_campaign=AO-Brand-Health-EX-New-Website_Nov&utm_content={adgroupname}&utm_term=royal%20sundaram%20health%20in
+				surance&gclid=Cj0KCQjwk7ugBhDIARIsAGuvgPYnl-tC3afi4T3EpYsuGXWKs43K_mVj8orzFiB8_Ua4kNft4t1UdnoaAoNqEALw_wcB" target="_blank" class="royal-sundaram">Royal Sundaram</a>
+				<p class="p-base5">Base plan</p>
+				<span class="material-icons" id="company5-star-icon1">star_outline</span>
+				<span class="material-icons" id="company5-star-icon2">star_outline</span>
+				<span class="material-icons" id="company5-star-icon3">star_outline</span>
+				<span class="material-icons" id="company5-star-icon4">star_outline</span>
+				<span class="material-icons" id="company5-star-icon5">star_outline</span>
+				<div class="company5-price">
+					<p class="p-company5-price">$1500/pm</p>
+				</div>
+				<button class="company5-buy-btn">buy</button>
+				
+				
+				<img class="company6" alt="wait" src="https://m.economictimes.com/thumb/msid-72130815,width-1200,height-900,resizemode-4,imgsize-333274/aditya-birla-health.jpg">
+				<a href="https://www.adityabirlacapital.com/healthinsurance/campaign/longer?source=google_super_brand&utm_source=google&utm_medium=cpc&utm_campaign=784092624&utm
+				_term=aditya%20birla%20health%20insurance&utm_content=417958351873&campaign=784092624&adgroup=49684739676&keyword=aditya%20birla%20health%20insurance&gclid=Cj0KCQ
+				jwk7ugBhDIARIsAGuvgPZrhg0QKv3amKPGN5VYYtgnMUbMhzymnuWrso6rNKky1pwl1Lnawb4aAubtEALw_wcB" target="_blank" class="aditya-birla">Aditya Birla</a>
+				<p class="p-base6">Base plan</p>
+				<span class="material-icons" id="company6-star-icon1">star_outline</span>
+				<span class="material-icons" id="company6-star-icon2">star_outline</span>
+				<span class="material-icons" id="company6-star-icon3">star_outline</span>
+				<span class="material-icons" id="company6-star-icon4">star_outline</span>
+				<span class="material-icons" id="company6-star-icon5">star_outline</span>
+				<div class="company6-price">
+					<p class="p-company6-price">$1500/pm</p>
+				</div>
+				<button class="company6-buy-btn">buy</button>
+				
+				
+				<img class="company7" alt="wait" src="https://www.wishpolicy.com/wp-content/uploads/2019/06/HDFC-Ergo-Health-Insurance.png">
+				<a href="https://www.hdfcergo.com/campaigns/buy-optima-secure?&utm_source=google_search&utm_medium=cpc&utm_campaign=Health_Search_Comp_Neev-Phrase&utm_adgroup=Small-Compe
+				titor&adid=633038907328&utm_term=aditya%20birla%20health%20insurance&utm_network=g&utm_matchtype=p&utm_device=c&utm_location=9061896&utm_sitelink={sitelink}&utm_placement
+				=&ci=googlesearch&SEM=1&gclid=Cj0KCQjwk7ugBhDIARIsAGuvgPYuYboS_5wQRe8tjOCOgWpEfR2LGjGWsvvh2eDaUu_acGU-GF2rFp4aAiGOEALw_wcB" target="_blank" class="hdfc">HDFE ERGO</a>
+				<p class="p-base7">Base plan</p>
+				<span class="material-icons" id="company7-star-icon1">star_outline</span>
+				<span class="material-icons" id="company7-star-icon2">star_outline</span>
+				<span class="material-icons" id="company7-star-icon3">star_outline</span>
+				<span class="material-icons" id="company7-star-icon4">star_outline</span>
+				<span class="material-icons" id="company7-star-icon5">star_outline</span>
+				<div class="company7-price">
+					<p class="p-company7-price">$1000/pm</p>
+				</div>
+				<button class="company7-buy-btn">buy</button>
+				
+				
+				<img class="company8" alt="wait" src="https://imgnew.outlookindia.com/public/uploads/articles/2021/10/19/Tata_Insurance.png">
+				<a href="https://www.tataaig.com/?&utm_source=google&utm_medium=cpc&utm_campaign=%7bTAGIC_Brand_Core_Desktop_EM%7d
+				-tata%20aig&utm_adgroup=Policy&utm_term=tata%20aig&utm_network=g&utm_matchtype=e&utm_device=c&utm_placement=&utm_c
+				ontent=625980230563&utm_Adposition=&utm_location=9061896&utm_Sitelink=&gclid=Cj0KCQjwk7ugBhDIARIsAGuvgPasp29m4hnPMr
+				C4fXmeVhYXVdnynSONth05N8VB1Y8ELaG9nve5DNgaAgJdEALw_wcB&gclsrc=aw.ds" target="_blank" class="tata">TATA AIG</a>
+				<p class="p-base8">Base plan</p>
+				<span class="material-icons" id="company8-star-icon1">star_outline</span>
+				<span class="material-icons" id="company8-star-icon2">star_outline</span>
+				<span class="material-icons" id="company8-star-icon3">star_outline</span>
+				<span class="material-icons" id="company8-star-icon4">star_outline</span>
+				<span class="material-icons" id="company8-star-icon5">star_outline</span>
+				<div class="company8-price">
+					<p class="p-company8-price">$500/pm</p>
+				</div>
+				<button class="company8-buy-btn">buy</button>
+				
+				
+				<img class="company9" alt="wait" src="https://yt3.googleusercontent.com/cS7q42gPSs5dVU-R3D0KoMpAFrFBoPH5MDpZGxxMfSVbZAcwxIfgGliBQZ7GTM5mfPRu3QKf4A=s900-c-k-c0x00ffffff-no-rj">
+				<a href="https://www.layahealthcare.ie/" target="_blank" class="laya">Laya Healthcare</a>
+				<p class="p-base9">Base plan</p>
+				<span class="material-icons" id="company9-star-icon1">star_outline</span>
+				<span class="material-icons" id="company9-star-icon2">star_outline</span>
+				<span class="material-icons" id="company9-star-icon3">star_outline</span>
+				<span class="material-icons" id="company9-star-icon4">star_outline</span>
+				<span class="material-icons" id="company9-star-icon5">star_outline</span>
+				<div class="company9-price">
+					<p class="p-company9-price">$1500/pm</p>
+				</div>
+				<button class="company9-buy-btn">buy</button>
+				
+				
+				<img class="company10" alt="wait" src="https://www.onepointinsurance.com/images/blog/small/17.jpg">
+				<a href="https://internal.kotakgeneral.com/health-insurance/kotak-health-premier/index?utm_source=google_pmax&utm_
+				medium=google&utm_campaign=ES_Pmax_Health_Mah_Mar_23&utm_content=ApplyNow&IntermediaryCode=1182240000&LeadGenerator
+				=Kotak&gclid=Cj0KCQjwk7ugBhDIARIsAGuvgPYo9CXAXacW9z4viJ6nYXydUSVGRnEgVtQGNM82EeSH-a1CZR0-J7EaAqRuEALw_wcB" target="_blank" class="kotak">Kotak Health Insurance</a>
+				<p class="p-base10">Base plan</p>
+				<span class="material-icons" id="company10-star-icon1">star_outline</span>
+				<span class="material-icons" id="company10-star-icon2">star_outline</span>
+				<span class="material-icons" id="company10-star-icon3">star_outline</span>
+				<span class="material-icons" id="company10-star-icon4">star_outline</span>
+				<span class="material-icons" id="company10-star-icon5">star_outline</span>
+				<div class="company10-price">
+					<p class="p-company10-price">$1500/pm</p>
+				</div>
+				<button class="company10-buy-btn">buy</button>
+		    </div>
+		</div>
+	</div>
+
+</body>
+</html>
