@@ -36,7 +36,7 @@ public class UserServiceImpl {
 	public Map<String, Object> getCustomers() {
 		Map<String, Object> r = new HashMap<>();
 		List<Map<String, Object>> dataOut = userRepository.display();
-		r.put("company_details", dataOut);
+		r.put("user_details", dataOut);
 		return r;
 	}
 
