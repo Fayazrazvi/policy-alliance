@@ -52,6 +52,12 @@ public class UserController {
 	}
 	
 	
+	@GetMapping("/customers")
+	public String customerList(Model model) {
+		model.addAttribute("customers",userService.getAllCustomers());
+		return "customers";
+	}
+	
 //	@GetMapping("/test")
 //	public String listUsers(Model model ) {
 //		model.addAttribute("test",userService.getAllCustomers());

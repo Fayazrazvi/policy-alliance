@@ -58,7 +58,7 @@
 #Buy{
 	position:absolute;
 	text-decoration:none;
-    top: 44px;
+    top: 40px;
 	left: 1271px;
 	width: 104px;
 	height: 22px;
@@ -834,6 +834,65 @@
 	top: 340px;
 	left: 666px;
 }
+
+.modal-backdrop{
+	z-index: 0 !Important;
+}
+.modal-content{
+	position:absolute;
+	top: 245px;
+	left: 0px;
+	width: 600px;
+	height: 389px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 15px #00000033;
+	border-radius:0px;
+	opacity: 1;
+}
+.p-modal-body{
+	position:absolute;
+	top: 81px;
+	left: 102px;
+	width: 234px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #3F3F57;
+	opacity: 1;
+}
+.modal-mobile-number-input{
+	position:absolute;
+	top: 113px;
+	left: 102px;
+	width: 396px;
+	height: 50px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+}
+.modal-submit-btn{
+	position:absolute;
+	top: 194px;
+	left: 102px;
+	width: 396px;
+	height: 50px;
+	background: #07539D 0% 0% no-repeat padding-box;
+	color:white;
+	border:none;
+	opacity: 1;
+}
+.under-submit-btn{
+	position:absolute;
+	top: 278px;
+	left: 159px;
+	width: 283px;
+	height: 17px;
+	text-align: left;
+	font: normal normal normal 16px/18px Arial;
+	letter-spacing: 0px;
+	opacity: 1;
+}
 </style>
 
 
@@ -846,33 +905,29 @@
 				<img class="header-img" src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
 				<h1 class="header-text" >Policyalliance</h1>
 			</div>
-			<!--<a href=""> <button id="Buy">Buy Now</button></a>
-			  Button trigger modal -->
+			<!--<a href=""> <button id="Buy">Buy Now</button></a>-->
+			 <!--  Button trigger modal -->
+			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" id="Buy" data-bs-toggle="modal"
-				data-bs-target="#staticBackdrop">Buy Now</button>
+				data-bs-target="#exampleModal">Buy Now</button>
 
 			<!-- Modal -->
-			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-				data-bs-keyboard="false" tabindex="-1"
-				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal" id="exampleModal" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<div class="modal-header">
-							<h1 class="modal-title fs-5" id="staticBackdropLabel">Enter Your Mobile Number</h1>
-							<button type="button" class="btn-close" data-bs-dismiss="modal"
-								aria-label="Close"></button>
-						</div>
 						<div class="modal-body">
-							<input type="number" id="fname" name="mobile muber">
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Understood</button>
+							<p class="p-modal-body">Enter your Mobile Number</p>
+							<input type="number" class="modal-mobile-number-input" name="number">
+							<button class="modal-submit-btn">Submit</button>
+							<p class="under-submit-btn">If you do not have an account?<a href="http://localhost:8080/home/register">Register</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			
+			
 			<a href=""> <button id="Customer">Customer</button></a>
 			<a href="http://localhost:8080/home/register"> <button id="Register">Register</button></a>
 		</div>

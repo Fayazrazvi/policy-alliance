@@ -113,6 +113,17 @@
 	box-shadow: 0px 0px 15px #00000033;
 	opacity: 1;
 }
+#register-img{
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	width: 600px;
+	height: 616px;
+	background: transparent url('img/Rectangle 88.png') 0% 0% no-repeat padding-box;
+	box-shadow: 0px 0px 15px #00000033;
+	opacity: 1;
+
+}
 .register-content{
 	position:absolute;
 	top: 232px;
@@ -226,17 +237,17 @@
 			<a href=""> <button id="Register">Register</button></a>
 		</div>
 		<div class="register-img">
-			<img alt="wait" src="file:///C:/Users/SM%20-%20Trainee/Downloads/Rectangle%2088.svg">
+			<img alt="wait" id="register-img" src="https://swaritadvisors.com/learning/wp-content/uploads/2018/08/Company-Registration-Online.jpg">
 		</div>
 		<div class="register-content">
 			<p class="register-p">Register</p>
 			<form action="/action_page.php">
 				<label for="name" id="name">Name:</label><br>
-				<input type="text" class="name-input" name="name"><br> 
+				<input type="text" class="name-input" name="name" required><br> 
 				<label for="number" id="mobile-number">Mobile Number:</label><br> 
-				<input type="number" class="mobile-number-input" name="number"><br>
+				<input type="number" class="mobile-number-input" name="number" required><br>
 				<label for="age" id="age">Age:</label><br>
-				<input type="number" class="age-input" name="age"><br> 
+				<input type="number" class="age-input" name="age" required><br> 
 				<input type="submit" class="register-btn" value="Register">
 			</form>
 
