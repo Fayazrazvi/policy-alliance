@@ -1,7 +1,7 @@
 com\perfect\project\entity\Company.class
 com\perfect\project\repository\UserRepository.class
-com\perfect\project\service\UserService.class
 com\perfect\project\ProjectApplication.class
+com\perfect\project\service\UserService.class
 com\perfect\project\entity\User.class
 com\perfect\project\service\impl\UserServiceImpl.class
 com\perfect\project\controller\UserController.class
