@@ -71,6 +71,7 @@ public class UserController {
 	{
 		Map<String,Object>c = userService.getAllCustomers();
 		String data=new Gson().toJson(c);
+		
 		return data;
 	}
 	
@@ -82,6 +83,7 @@ public class UserController {
 		String data2 =new Gson().toJson(on);
 		return data2;
 	}
+	
 
 	
 	

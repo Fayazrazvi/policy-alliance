@@ -4,7 +4,6 @@
 <meta charset="ISO-8859-1">
 <title>Policy Management System</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
@@ -158,7 +157,7 @@
 	color: #3F3F57;
 	opacity: 1;
 }
-.name-input{
+#name-input{
 	position:absolute;
 	top: 191px;
 	left: 102px;
@@ -180,7 +179,7 @@
 	color: #3F3F57;
 	opacity: 1;
 }
-.mobile-number-input{
+#mobile-number-input{
 	position:absolute;
 	top: 295px;
 	left: 102px;
@@ -202,7 +201,7 @@
 	color: #3F3F57;
 	opacity: 1;
 }
-.age-input{
+#age-input{
 	position:absolute;
 	top: 399px;
 	left: 102px;
@@ -225,33 +224,70 @@
 }
 </style>
 </head>
-<body onload = "process()">
-<div class="container-fluid">
+<body >
+	<div class="container-fluid">
 		<div class="header">
-			<div >
-				<img class="header-img" src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
-				<h1 class="header-text" >Policyalliance</h1>
+			<div>
+				<img class="header-img"
+					src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
+				<h1 class="header-text">Policyalliance</h1>
 			</div>
-			<a href=""> <button id="Buy">Buy Now</button></a>
-			<a href=""> <button id="Customer">Customer</button></a>
-			<a href=""> <button id="Register">Register</button></a>
+			<a href="">
+				<button id="Buy">Buy Now</button>
+			</a> <a href="">
+				<button id="Customer">Customer</button>
+			</a> <a href="">
+				<button id="Register">Register</button>
+			</a>
 		</div>
 		<div class="register-img">
-			<img alt="wait" id="register-img" src="https://swaritadvisors.com/learning/wp-content/uploads/2018/08/Company-Registration-Online.jpg">
+			<img alt="wait" id="register-img"
+				src="https://swaritadvisors.com/learning/wp-content/uploads/2018/08/Company-Registration-Online.jpg">
 		</div>
 		<div class="register-content">
 			<p class="register-p">Register</p>
-			<form action="/action_page.php">
-				<label for="name" id="name">Name:</label><br>
-				<input type="text" class="name-input" name="name" required><br> 
-				<label for="number" id="mobile-number">Mobile Number:</label><br> 
-				<input type="number" class="mobile-number-input" name="number" required><br>
-				<label for="age" id="age">Age:</label><br>
-				<input type="number" class="age-input" name="age" required><br> 
-				<input type="submit" class="register-btn" value="Register">
-			</form>
+				<label for="name" id="name">Name:</label><br> 
+				<input type="text" id="name-input" name="name" required><br>
+				<label for="number" id="mobile-number">Mobile Number:</label><br>
+				<input type="number" id="mobile-number-input" name="number" required><br>
+				<label for="age" id="age">Age:</label><br> 
+				<input type="number" id="age-input" name="age" required><br> 
+				<input type="button" class="register-btn" value="Register" onclick="dataFilter()">
 
 		</div>
+
+		<script type="text/javascript">
+			function dataFilter() {
+				debugger;
+				var name = document.getElementById("name-input").value;
+				var mobileNumber = document.getElementById("mobile-number-input").value;
+				var age = document.getElementById("age-input").value;
+				var data = {
+					Name : name,
+					MobileNumber : mobileNumber,
+					Age : age
+				};
+				
+				console.log(data);
+				 $.ajax({
+		                type: "POST",
+		                headers: {
+		                    'Content-Type': 'application/json'
+		                },
+		                url: "/home/register", //this is my servlet
+		                value: JSON.stringify(data),
+		                // cache: false,
+		                // async: false,
+		                success: function(response) {
+	    					console.log("hiii");
+		                }
+				        });
+				
+			      }
+			
+		</script>
+
+	</div>
 
 </body>
 </html>
