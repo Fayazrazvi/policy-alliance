@@ -2,24 +2,31 @@ package com.perfect.project.controller;
 
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.perfect.project.repository.UserRepository;
 import com.perfect.project.service.impl.UserServiceImpl;
 
-
 @Controller
-
+//@RestController
 public class UserController {
 	
 	@Autowired
 	UserServiceImpl userService;
+	
+	private static final Logger logger=LoggerFactory.getLogger(UserController.class);
+	
+	@Autowired
+	UserRepository userRepository;
 	
 	@GetMapping("/")
 	public String dummy() {
@@ -34,14 +41,12 @@ public class UserController {
 	
 	
 	@GetMapping("/users")
-	public String listUsers(Model model ) {
-		model.addAttribute("users",userService.getAllCustomers());
+	public String listUsers() {
 		return "users";
 	}
 	
 	@GetMapping("/register")
-	public String register(Model model ) {
-		model.addAttribute("register",userService.getAllCustomers());
+	public String register() {
 		return "register";
 	}
 	
@@ -57,13 +62,9 @@ public class UserController {
 		model.addAttribute("customers",userService.getAllCustomers());
 		return "customers";
 	}
+
 	
-//	@GetMapping("/test")
-//	public String listUsers(Model model ) {
-//		model.addAttribute("test",userService.getAllCustomers());
-//		return "test";
-//	}
-//	
+
 	
 	@PostMapping("/check")
 	@ResponseBody
@@ -75,16 +76,26 @@ public class UserController {
 		return data;
 	}
 	
-	@PostMapping("/outNew")
-	@ResponseBody
-	public String display()
-	{
-		Map<String, Object> on=userService.getCustomers();
-		String data2 =new Gson().toJson(on);
-		return data2;
+//	@PostMapping("/outNew")
+//	@ResponseBody
+//	public String display()
+//	{
+//		Map<String, Object> on=userService.getCustomers();
+//		String data2 =new Gson().toJson(on);
+//		return data2;
+//	}
+	
+	
+	@PostMapping("/register")
+	public String insertData(@RequestBody Map<String,Object> user) {
+	    userService.getCustomers(user);
+	    return "users";
 	}
 	
-
-	
-	
+//	 @PostMapping("/checkNumber")
+//	  public Map<String, Boolean> checkNumber(@RequestParam long number) {
+//	    boolean exists = userService.numberExistsInDatabase(number);
+//	    return Collections.singletonMap("exists", exists);
+//	  } 
+	  
 }

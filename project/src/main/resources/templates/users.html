@@ -851,7 +851,7 @@
 }
 .p-modal-body{
 	position:absolute;
-	top: 81px;
+	top: 44px;
 	left: 102px;
 	width: 234px;
 	height: 22px;
@@ -863,7 +863,29 @@
 }
 .modal-mobile-number-input{
 	position:absolute;
-	top: 113px;
+	top: 76px;
+	left: 102px;
+	width: 396px;
+	height: 50px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 1px solid #707070;
+	opacity: 1;
+}
+.p-modal-body2{
+	position:absolute;
+	top: 146px;
+	left: 102px;
+	width: 234px;
+	height: 22px;
+	text-align: left;
+	font: normal normal normal 20px/23px Arial;
+	letter-spacing: 0px;
+	color: #3F3F57;
+	opacity: 1;
+}
+.modal-password-input{
+	position:absolute;
+	top: 178px;
 	left: 102px;
 	width: 396px;
 	height: 50px;
@@ -873,7 +895,7 @@
 }
 .modal-submit-btn{
 	position:absolute;
-	top: 194px;
+	top: 258px;
 	left: 102px;
 	width: 396px;
 	height: 50px;
@@ -884,7 +906,7 @@
 }
 .under-submit-btn{
 	position:absolute;
-	top: 278px;
+	top: 328px;
 	left: 159px;
 	width: 283px;
 	height: 17px;
@@ -917,10 +939,14 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-body">
+						<form id="myForm">
 							<p class="p-modal-body">Enter your Mobile Number</p>
-							<input type="number" class="modal-mobile-number-input" name="number">
-							<button class="modal-submit-btn">Submit</button>
+							<input type="number" id ="number" class="modal-mobile-number-input" name="number" required>
+							<p class="p-modal-body2">Password</p>
+							<input type="password" id ="password" class="modal-password-input" name="password" required>
+							<button type="submit" class="modal-submit-btn">Submit</button>
 							<p class="under-submit-btn">If you do not have an account?<a href="http://localhost:8080/home/register">Register</a></p>
+						</form>
 						</div>
 					</div>
 				</div>
@@ -928,7 +954,7 @@
 			
 			
 			
-			<a href=""> <button id="Customer">Customer</button></a>
+			<a href="http://localhost:8080/home/customers"> <button id="Customer">Customer</button></a>
 			<a href="http://localhost:8080/home/register"> <button id="Register">Register</button></a>
 		</div>
 		<div class="body-content">
@@ -1114,6 +1140,9 @@
 			});
 		}
 		</script>
+
+
+	
 	
 </body>
 </html>
