@@ -45,16 +45,36 @@ public class UserServiceImpl {
 	    logger.info(name);
 	    logger.info(age);
 	    logger.info(password);
-	    userRepository.insertCustomer(name, number2, age2,password);
+	    
+	    List<Map<String,Object>> result =userRepository.checkCustomer(number2);
+		if (result.isEmpty()) {
+			userRepository.insertCustomer(name, number2, age2,password);
+			r.put("Success", result);
+			
+			
+		} 
+		else {
+			logger.info("check");
+			r.put("status","201");
+			
+		}
 		return r;
 	}
 	
-//	public boolean numberExistsInDatabase(long number) {
-//	    List<User> entities = userRepository.findByMyNumber(number);
-//	    return !entities.isEmpty();
-//	  }
-	
-	
+	public Map<String, Object> existCustomer( Map<String,Object> user) {
+		Map<String, Object> e = new HashMap<>();
+		String mobile_number =(String)user.get("MobileNumber");
+		long number2 = Long.valueOf(mobile_number);
+		String password =(String)user.get("Password");
+		List<Map<String,Object>> check =userRepository.loginCustomer(number2, password);
+		if(check.isEmpty()) {
+			e.put("success", check);
+		}
+		else {
+			e.put("status", "201");
+		}
+		return e;
+	}
 	
 	
 	
