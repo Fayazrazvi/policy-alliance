@@ -1,18 +1,22 @@
 package com.perfect.project.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.perfect.project.entity.User;
 import com.perfect.project.repository.UserRepository;
 import com.perfect.project.service.impl.UserServiceImpl;
 
@@ -51,15 +55,13 @@ public class UserController {
 	}
 	
 	@GetMapping("/company")
-	public String companies(Model model ) {
-		model.addAttribute("company",userService.getAllCustomers());
+	public String companies() {
 		return "company";
 	}
 	
 	
 	@GetMapping("/customers")
-	public String customerList(Model model) {
-		model.addAttribute("customers",userService.getAllCustomers());
+	public String customerList() {
 		return "customers";
 	}
 
@@ -87,15 +89,42 @@ public class UserController {
 	
 	
 	@PostMapping("/register")
+	@ResponseBody
 	public String insertData(@RequestBody Map<String,Object> user) {
-	    userService.getCustomers(user);
-	    return "users";
+		Map<String,Object> result=userService.getCustomers(user);
+		String data =new Gson().toJson(result);
+		logger.info("check32312" + data);
+	    return data;
 	}
 	
-//	 @PostMapping("/checkNumber")
-//	  public Map<String, Boolean> checkNumber(@RequestParam long number) {
-//	    boolean exists = userService.numberExistsInDatabase(number);
-//	    return Collections.singletonMap("exists", exists);
-//	  } 
+	
+	@PostMapping("/users")
+	@ResponseBody
+	public String checkExistCustomer(@RequestBody Map<String,Object> user) {
+		Map<String,Object> ce=userService.existCustomer(user);
+		String data2 = new Gson().toJson(ce);
+		return data2;
+	}
+	
+//	@PostMapping("/register")
+//	public String addUser(@PathVariable long mobile_number, Map<String , Object> user)
+//	{
+//		
+//		List<User> list=userService.isUserExistsByMobileNumber(mobile_number);
+//		
+//		if(list.isEmpty())
+//		{
+//		return "Oops!  There is already a user registered with the email provided.";
+//		
+//		}
+//		else
+//		{
+//		userService.getCustomers(user);
+//		return"User has been successfully registered.";
+//		}
+//		
+//		
+//	}
+
 	  
 }

@@ -26,7 +26,13 @@ public interface UserRepository extends JpaRepository<User , Integer> {
     @Transactional
     @Query(value = "INSERT INTO user_details(name, mobile_number,age,password) VALUES(?1,?2,?3,?4)", nativeQuery = true)
     void insertCustomer( String name,  long mobile_number, Integer age,String password);
+    
+    
+    @Query(value="select * from user_details where mobile_number=?1",nativeQuery=true)
+    public List<Map<String , Object>> checkCustomer(long mobile_number);
+    
+    @Query(value="select * from user_details where mobile_number=?1 && password=?2",nativeQuery=true)
+    public List<Map<String , Object>> loginCustomer(long mobile_number , String password);
 
-//    List<User> findByMyNumber(long number);
 
 }

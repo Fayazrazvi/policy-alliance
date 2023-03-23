@@ -944,7 +944,7 @@
 							<input type="number" id ="number" class="modal-mobile-number-input" name="number" required>
 							<p class="p-modal-body2">Password</p>
 							<input type="password" id ="password" class="modal-password-input" name="password" required>
-							<button type="submit" class="modal-submit-btn">Submit</button>
+							<button type="submit" class="modal-submit-btn" onclick="dataFilter()">Submit</button>
 							<p class="under-submit-btn">If you do not have an account?<a href="http://localhost:8080/home/register">Register</a></p>
 						</form>
 						</div>
@@ -1121,24 +1121,70 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		var jsonData = {};
-		function process() {
-			$.ajax({
-				type : "POST",
-				headers : {
-					'Content-Type' : 'application/json'
-				},
-				crossDomain : true,
-				url : "/home/check",
-				success : function(response) {
-					jsonData = response;
-					console.log(jsonData);
-					console.log("hiii")
-				},
-				error : function() {
-				}
-			});
-		}
+		function dataFilter() {
+			debugger;
+			var mobileNumber = document.getElementById("number").value;
+			var password = document.getElementById("password").value;
+			var data = {
+				MobileNumber : mobileNumber,
+				Password : password
+			};
+			
+			console.log(data);
+			
+            $.ajax({
+     
+                type: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                url: "/home/users", //this is my servlet
+                dataType:'json',
+                data: JSON.stringify(data),
+                // cache: false,
+                // async: false,
+                success:function(response) {
+                	debugger;
+                	var receivedData=response;
+                	
+                	console.log(receivedData);
+                	
+                	if(receivedData.status == "201")
+                	{
+	                	//alert("You are logged in successfully");
+	                	window.location.href = "http://localhost:8080/home/company";
+                	}
+                	else
+                	{
+	                	alert("You don't have an account please register first");
+	                	
+                	}
+                	console.log(data);
+   					
+                },
+                error: function(jqXHR, exception) {
+                    // Our error logic here
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    }else if(jqXHR.status === 401){
+						window.location.href = "/smco/SessionFailed.jsp"
+					} else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                }
+            });
+        }	
 		</script>
 
 
