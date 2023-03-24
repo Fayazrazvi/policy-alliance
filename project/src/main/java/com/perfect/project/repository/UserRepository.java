@@ -33,6 +33,9 @@ public interface UserRepository extends JpaRepository<User , Integer> {
     
     @Query(value="select * from user_details where mobile_number=?1 && password=?2",nativeQuery=true)
     public List<Map<String , Object>> loginCustomer(long mobile_number , String password);
+    
+    @Query(value="select name from user_details where mobile_number=?1 && password=?2",nativeQuery=true)
+    public List<Map<String ,Object>> userName(); 
 
 
 }
