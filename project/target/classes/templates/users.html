@@ -3,8 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Policy Management System</title>
+<script src="https://kit.fontawesome.com/64d58efce2.js"crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> 
@@ -915,6 +915,11 @@
 	letter-spacing: 0px;
 	opacity: 1;
 }
+#loginToggle{
+	position: absolute;
+    top: 196px;
+    left: 463px;
+}
 </style>
 
 
@@ -939,11 +944,12 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-body">
-						<form id="myForm">
+						<form>
 							<p class="p-modal-body">Enter your Mobile Number</p>
 							<input type="number" id ="number" class="modal-mobile-number-input" name="number" required>
 							<p class="p-modal-body2">Password</p>
 							<input type="password" id ="password" class="modal-password-input" name="password" required>
+							<span id="loginPasswordSuccess" onclick="showPassword()"><i class="fa fa-eye toggle " id="loginToggle"></i></span>
 							<button type="submit" class="modal-submit-btn" onclick="dataFilter()">Submit</button>
 							<p class="under-submit-btn">If you do not have an account?<a href="http://localhost:8080/home/register">Register</a></p>
 						</form>
@@ -1156,7 +1162,7 @@
                 	}
                 	else
                 	{
-	                	alert("You don't have an account please register first");
+	                	alert("You don't have an account or your password and mobile number not match please check it");
 	                	
                 	}
                 	console.log(data);
@@ -1186,7 +1192,17 @@
             });
         }	
 		</script>
-
+		<script type="text/javascript">
+			function showPassword() {
+					var loginPassword = document.querySelector('#password');
+					var loginToggle = document.querySelector("#loginToggle");
+					// toggle the type attribute
+					var type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+					loginPassword.setAttribute('type', type);
+					// toggle the eye slash icon
+					loginToggle.classList.toggle('fa-eye-slash');
+			   }
+		</script>
 
 	
 	

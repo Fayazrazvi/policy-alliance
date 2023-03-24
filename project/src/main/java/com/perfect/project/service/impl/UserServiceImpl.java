@@ -49,9 +49,7 @@ public class UserServiceImpl {
 	    List<Map<String,Object>> result =userRepository.checkCustomer(number2);
 		if (result.isEmpty()) {
 			userRepository.insertCustomer(name, number2, age2,password);
-			r.put("Success", result);
-			
-			
+			r.put("Success",result);
 		} 
 		else {
 			logger.info("check");
