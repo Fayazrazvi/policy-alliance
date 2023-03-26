@@ -105,26 +105,52 @@ public class UserController {
 		String data2 = new Gson().toJson(ce);
 		return data2;
 	}
+	@PostMapping("/users2")
+	@ResponseBody
+	public String sendCustomers(@RequestBody Map<String,Object> user){
+	String finalProducts="";
+	try {
+	Map<String, Object> customerData=userService.getCustomer(user);
+	logger.info("check"+customerData);
+	finalProducts=new Gson().toJson(customerData);
+	logger.info(finalProducts);
+	}
+	catch (Exception e) {
+	logger.info("Error is"+e);
+	}
+	return finalProducts;
+	}
 	
-//	@PostMapping("/register")
-//	public String addUser(@PathVariable long mobile_number, Map<String , Object> user)
-//	{
-//		
-//		List<User> list=userService.isUserExistsByMobileNumber(mobile_number);
-//		
-//		if(list.isEmpty())
-//		{
-//		return "Oops!  There is already a user registered with the email provided.";
-//		
-//		}
-//		else
-//		{
-//		userService.getCustomers(user);
-//		return"User has been successfully registered.";
-//		}
-//		
-//		
-//	}
-
+	@PostMapping("/company")
+	@ResponseBody
+	public String sendProducts(){
+	String finalProducts="";
+	try {
+	Map<String, Object> companyData=userService.getAllCompany();
+	logger.info("check"+companyData);
+	finalProducts=new Gson().toJson(companyData);
+	logger.info(finalProducts);
+	}
+	catch (Exception e) {
+	logger.info("Error is"+e);
+	}
+	return finalProducts;
+	}
+	
+	@PostMapping("/customers")
+	@ResponseBody
+	public String customer(){
+	String finalProducts="";
+	try {
+		Map<String, Object> customerData=userService.customerDetails();
+		logger.info("check"+customerData);
+		finalProducts=new Gson().toJson(customerData);
+		logger.info(finalProducts);
+	}
+	catch (Exception e) {
+	logger.info("Error is"+e);
+	}
+	return finalProducts;
+	}
 	  
 }
