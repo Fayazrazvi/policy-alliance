@@ -957,10 +957,28 @@
 					</div>
 				</div>
 			</div>
+			<button type="button" class="btn btn-primary" id="Customer" data-bs-toggle="modal"
+				data-bs-target="#exampleModal2">Customer</button>
+
+			<!-- Modal -->
+			<div class="modal" id="exampleModal2" tabindex="-1"
+				aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-body">
+						<form>
+							<p class="p-modal-body">Enter your Mobile Number</p>
+							<input type="number" id ="number2" class="modal-mobile-number-input" name="number" required>
+							<button type="submit" class="modal-submit-btn" onclick="dataFilter2()">Submit</button>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
 			
 			
 			
-			<a href="http://localhost:8080/home/customers"> <button id="Customer">Customer</button></a>
+			<!-- <a href="http://localhost:8080/home/customers"> <button id="Customer">Customer</button></a> -->
 			<a href="http://localhost:8080/home/register"> <button id="Register">Register</button></a>
 		</div>
 		<div class="body-content">
@@ -1202,6 +1220,70 @@
 					// toggle the eye slash icon
 					loginToggle.classList.toggle('fa-eye-slash');
 			   }
+		</script>
+		<script type="text/javascript">
+		function dataFilter2() {
+			debugger;
+			var mobileNumber = document.getElementById("number2").value;
+			var data = {
+				MobileNumber : mobileNumber,
+			};
+			
+			console.log(data);
+			
+            $.ajax({
+     
+                type: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                url: "/home/users2", //this is my servlet
+                dataType:'json',
+                data: JSON.stringify(data),
+                // cache: false,
+                // async: false,
+                success:function(response) {
+                	debugger;
+                	var receivedData=response;
+                	
+                	console.log(receivedData);
+                	
+                	if(receivedData.status == "201")
+                	{
+	                	//alert("You are logged in successfully");
+	                	window.location.href = "http://localhost:8080/home/customers";
+                	}
+                	else
+                	{
+	                	alert("You don't have any policy  please buy first");
+	                	
+                	}
+                	console.log(data);
+   					
+                },
+                error: function(jqXHR, exception) {
+                    // Our error logic here
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                    }else if(jqXHR.status === 401){
+						window.location.href = "/smco/SessionFailed.jsp"
+					} else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    }
+                }
+            });
+        }	
 		</script>
 
 	

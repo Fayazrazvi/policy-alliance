@@ -74,6 +74,20 @@ public class UserServiceImpl {
 		return e;
 	}
 	
+	public Map<String, Object> getCustomer(Map<String,Object> user){
+		Map<String,Object> resultData= new HashMap<>();
+		String mobile_number =(String)user.get("MobileNumber");
+		long number2 = Long.valueOf(mobile_number);
+		List<Map<String, Object>> customerDetail=userRepository.getCustomerDetails(number2);
+		if(customerDetail.isEmpty()) {
+			resultData.put("success", customerDetail);
+		}
+		else {
+			resultData.put("status", "201");
+		}
+		return resultData;
+	
+	}
 	
 	
 	public User insertData(User user) {
@@ -81,13 +95,19 @@ public class UserServiceImpl {
 	}
 	
 	
-//    @Transactional
-//	public void addCustomer(String Name, String MobileNumber) {
-//        userRepository.insertData(Name, MobileNumber);
-//    }
+	public Map<String, Object> getAllCompany() {
+		List<Map<String, Object>> allCompanies=userRepository.getCompanyDetails();
+		Map<String,Object> resultData= new HashMap<>();
+		resultData.put("company", allCompanies);
+		return resultData;
+		}
 	
 	
-
-  
+	public Map<String , Object> customerDetails(){
+		Map<String,Object> resultData= new HashMap<>();
+		List<Map<String, Object>> customerDetail=userRepository.individualCustomerDetails();
+		resultData.put("customer", customerDetail);
+		return resultData;
+	}
 
 }
