@@ -42,5 +42,6 @@ public interface UserRepository extends JpaRepository<User , Integer> {
     
     @Query(nativeQuery = true,value="Select * from payment_details ")
     public List<Map<String,Object>> individualCustomerDetails();
+    
 
 }

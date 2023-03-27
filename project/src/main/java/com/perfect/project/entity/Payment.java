@@ -34,11 +34,11 @@ public class Payment {
     @Column(name = "policy_end_date")
     private String policy_end_date;
     
-    @Column(name = "user_id")
-    private int user_id;
+    @Column(name = "name")
+    private String name;
     
-    @Column(name = "company_id")
-    private int company_id;
+    @Column(name = "company_name")
+    private String company_name;
     
     @Column(name = "mobile_number")
     private long mobile_number;
@@ -51,13 +51,13 @@ public class Payment {
     	
     }
      
- public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,int user_id,int company_id,long mobile_number) {
+ public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,String name,String company_name,long mobile_number) {
 	 this.payment_id=payment_id;
 	 this.payment_via=payment_via;
 	 this.policy_start_date=policy_start_date;
 	 this.policy_end_date=policy_end_date;
-	 this.user_id=user_id;
-	 this.company_id=company_id;
+	 this.name=name;
+	 this.company_name=company_name;
 	 this.mobile_number=mobile_number;
     	
     }
@@ -70,20 +70,20 @@ public class Payment {
 		this.payment_via = payment_via;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public String getName() {
+		return name;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getCompany_id() {
-		return company_id;
+	public String getCompany_Name() {
+		return company_name;
 	}
 
-	public void setCompany_id(int company_id) {
-		this.company_id = company_id;
+	public void setCompany_Name(String company_name) {
+		this.company_name = company_name;
 	}
 
 	public long getMobile_number() {
