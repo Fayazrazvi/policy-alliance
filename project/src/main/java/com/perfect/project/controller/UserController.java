@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,6 +20,8 @@ import com.google.gson.Gson;
 import com.perfect.project.entity.User;
 import com.perfect.project.repository.UserRepository;
 import com.perfect.project.service.impl.UserServiceImpl;
+
+import ch.qos.logback.core.model.Model;
 
 @Controller
 //@RestController
@@ -48,6 +51,7 @@ public class UserController {
 	public String listUsers() {
 		return "users";
 	}
+	
 	
 	@GetMapping("/register")
 	public String register() {
