@@ -25,6 +25,9 @@ public class Company {
 	@Column(name = "star_rating")
     private int star_rating;
 	
+	@Column(name = "user_id")
+    private int user_id;
+	
 	
 	@Column(name = "company_name")
     private String company_name;
@@ -44,13 +47,14 @@ public class Company {
 	public Company() {
 
 	    }
-	 public Company(int star_rating , int company_id ,String company_name , int premium_amount, String company_image ,  String plan) {
+	 public Company(int star_rating , int company_id ,String company_name , int premium_amount, String company_image ,  String plan,int user_id) {
 		 this.star_rating=star_rating;
 		 this.company_id=company_id;
 		 this.company_name=company_name;
 		 this.premium_amount=premium_amount;
 		 this.company_image=company_image;
 		 this.plan=plan;
+		 this.user_id=user_id;
 	 }
 	 
 
