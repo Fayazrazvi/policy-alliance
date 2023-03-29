@@ -1,7 +1,10 @@
 com\perfect\project\entity\Company.class
 com\perfect\project\repository\UserRepository.class
+META-INF\MANIFEST.MF
 com\perfect\project\ProjectApplication.class
+META-INF\maven\com.perfect\project\pom.properties
 com\perfect\project\service\UserService.class
+META-INF\maven\com.perfect\project\pom.xml
 com\perfect\project\entity\User.class
 com\perfect\project\service\impl\UserServiceImpl.class
 com\perfect\project\controller\UserController.class

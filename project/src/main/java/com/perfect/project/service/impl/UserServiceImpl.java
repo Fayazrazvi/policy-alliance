@@ -8,11 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.perfect.project.entity.User;
 import com.perfect.project.repository.UserRepository;
-
-import jakarta.transaction.Transactional;
 
 
 
@@ -57,19 +56,52 @@ public class UserServiceImpl {
 			
 		}
 		return r;
+		
 	}
 	
+	
+	public Map<String, Object> getHistory(@RequestBody Map<String,Object> user) {
+		Map<String, Object> h = new HashMap<>();
+		String name = (String) user.get("userName");
+		Long mobile_number=Long.valueOf((String)user.get("userMobileNumber"));
+	    String payment_via =(String)user.get("PaymentVia");
+	    String policy_start_date =(String)user.get("PolicyStartdate");
+	    String policy_end_date =(String)user.get("PolicyEndDate");
+//	    String premium_amount=(String)user.get("Amount");
+	    int premium_amount=Integer.valueOf((String)user.get("Amount"));
+	    String company_name = (String) user.get("CompanyName");
+	    String plan = (String) user.get("Plan");
+//	    int amount=Integer.valueOf(premium_amount);
+	    logger.info(name);
+	    logger.info("check9"+mobile_number);
+	    logger.info(payment_via);
+	    logger.info(policy_start_date);
+	    logger.info(policy_end_date);
+	    //logger.info(premium_amount);
+	    logger.info(company_name);
+	    logger.info(plan);
+	    
+	    
+	    userRepository.insertPaymentDetails(name,mobile_number, payment_via, policy_start_date,policy_end_date,company_name,plan,premium_amount);
+		h.put("status","200");
+		return h;
+		
+	}
 	public Map<String, Object> existCustomer( Map<String,Object> user) {
 		Map<String, Object> e = new HashMap<>();
 		String mobile_number =(String)user.get("MobileNumber");
 		long number2 = Long.valueOf(mobile_number);
 		String password =(String)user.get("Password");
-		List<Map<String,Object>> check =userRepository.loginCustomer(number2, password);
+		Map<String,Object> check =userRepository.loginCustomer(number2, password);
 		if(check.isEmpty()) {
-			e.put("success", check);
+			e.put("status", "300");
+			
 		}
 		else {
-			e.put("status", "201");
+			e.put("status", "200");
+			e.put("name",check.get("name"));
+			e.put("mobileNumber",check.get("mobile_number"));
+			logger.info("check"+e);
 		}
 		return e;
 	}
@@ -81,6 +113,7 @@ public class UserServiceImpl {
 		List<Map<String, Object>> customerDetail=userRepository.getCustomerDetails(number2);
 		if(customerDetail.isEmpty()) {
 			resultData.put("success", customerDetail);
+			
 		}
 		else {
 			resultData.put("status", "201");

@@ -101,12 +101,23 @@ public class UserController {
 	    return data;
 	}
 	
+	@PostMapping("/company2")
+	@ResponseBody
+	public String insertPaymentData(@RequestBody Map<String,Object> user) {
+		Map<String,Object> result=userService.getHistory(user);
+		logger.info("check"+user);
+		String data =new Gson().toJson(result);
+		logger.info("check32312" + data);
+	    return data;
+	}
+	
 	
 	@PostMapping("/users")
 	@ResponseBody
 	public String checkExistCustomer(@RequestBody Map<String,Object> user) {
 		Map<String,Object> ce=userService.existCustomer(user);
 		String data2 = new Gson().toJson(ce);
+		logger.info("check" + data2);
 		return data2;
 	}
 	@PostMapping("/users2")

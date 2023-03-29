@@ -55,38 +55,7 @@
 	color: #07539D;
 	opacity: 1
 }
-#Buy{
-	position:absolute;
-	text-decoration:none;
-    top: 44px;
-	left: 1271px;
-	width: 104px;
-	height: 22px;
-	text-align: left;
-	font: normal normal normal 20px/23px Arial;
-	letter-spacing: 0px;
-	color: #07539D;
-    border: none;
-    background-color: white;
-	opacity: 1;
 
-}
-#Customer{
-	position:absolute;
-	text-decoration:none;
-    top: 44px;
-	left: 1450px;
-	width: 87px;
-	height: 22px;
-	text-align: left;
-	font: normal normal normal 20px/23px Arial;
-	letter-spacing: 0px;
-	color: #07539D;
-	border: none;
-    background-color: white;
-	opacity: 1;
-
-}
 #account{
 	position:absolute;
 	top: 31px;
@@ -929,9 +898,10 @@
 }
 .p-modal-company5{
 	position:absolute;
+	left:385px;
 	top:64px;
-	right:8px;
-	width: 165px;
+	right:4px;
+	width: 208px;
 	height: 17px;
 	text-align: left;
 	font: normal normal bold 16px/18px Arial;
@@ -1117,10 +1087,8 @@
 			<div>
 				<img class="header-img"
 					src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
-				<h1 class="header-text">Policyalliance</h1>
+				<a href="http://localhost:8080/home/users"><h1 class="header-text">Policyalliance</h1></a>
 			</div>
-			<a href=""><button id="Buy">Buy Now</button></a> 
-			<a href=""><button id="Customer">Customer</button></a>
 			<span class="material-icons" id="account">account_circle</span>
 			<p class="p-fayaz">Hi,Fayaz</p>
 		</div>
@@ -1150,6 +1118,7 @@
 		<script type="text/javascript">
 			function open(){
 			$.ajax({
+				
 			type : "POST",
 			headers : {
 			'Content-Type' : 'application/json'
@@ -1160,130 +1129,188 @@
 			var company=JSON.parse(data);
 			console.log(company["company"])
 			for (var i = 0; i < company["company"].length; i++) {
-			var companyDiv = document.createElement('div');
-			companyDiv.className = 'company'+i;
+				
+				var companyData = company["company"][i].company_name;
+				
+				console.log(companyData);
+				
+				var companyDiv = document.createElement('div');
+				companyDiv.className = 'company'+i;
+				
+				var companyImage = document.createElement('img');
+				companyImage.src = company["company"][i].company_image;
+				companyImage.className = 'company-img'+i;
+				
+				var companyName = document.createElement('p');
+				companyName.textContent = company["company"][i].company_name;
+				companyName.className = 'company-name'+i;
+				
+				var companyPlan = document.createElement('p');
+				companyPlan.textContent = company["company"][i].plan;
+				companyPlan.className = 'company-plan'+i;
+				
+				
+				var policyAmount = document.createElement('p');
+				policyAmount.textContent = `${company["company"][i].premium_amount}`;
+				policyAmount.className = 'premium-amount'+i;
+				
+				var starRating = document.createElement('div');
+				starRating.className = 'star-rating';
+				
+				var fullStars = Math.floor(company["company"][i].star_rating);
+				var halfStars = Math.round((company["company"][i].star_rating - fullStars) * 2);
+	
+				
+				for (var j = 0; j < fullStars; j++) {
+				  var star = document.createElement('i');
+				  star.className = 'material-icons';
+				  star.textContent = 'star';
+				  starRating.appendChild(star);
+				}
+	
+				
+				if (halfStars > 0) {
+				  var halfStar = document.createElement('i');
+				  halfStar.className = 'material-icons';
+				  halfStar.textContent = 'star_half';
+				  starRating.appendChild(halfStar);
+				}
+	
+				
+				for (var j = 0; j < 5 - (fullStars + halfStars); j++) {
+				  var emptyStar = document.createElement('i');
+				  emptyStar.className = 'material-icons';
+				  emptyStar.textContent = 'star_border';
+				  starRating.appendChild(emptyStar);
+				}
 			
-			var companyImage = document.createElement('img');
-			companyImage.src = company["company"][i].company_image;
-			companyImage.className = 'company-img'+i;
-			
-			var companyName = document.createElement('p');
-			companyName.textContent = company["company"][i].company_name;
-			companyName.className = 'company-name'+i;
-			
-			var companyPlan = document.createElement('p');
-			companyPlan.textContent = company["company"][i].plan;
-			companyPlan.className = 'company-plan'+i;
-			
-			var policyAmount = document.createElement('p');
-			policyAmount.textContent = `${company["company"][i].premium_amount}`;
-			policyAmount.className = 'premium-amount'+i;
-			
-			var starRating = document.createElement('div');
-			starRating.className = 'star-rating';
-			
-			var fullStars = Math.floor(company["company"][i].star_rating);
-			var halfStars = Math.round((company["company"][i].star_rating - fullStars) * 2);
-
-			
-			for (var j = 0; j < fullStars; j++) {
-			  var star = document.createElement('i');
-			  star.className = 'material-icons';
-			  star.textContent = 'star';
-			  starRating.appendChild(star);
-			}
-
-			
-			if (halfStars > 0) {
-			  var halfStar = document.createElement('i');
-			  halfStar.className = 'material-icons';
-			  halfStar.textContent = 'star_half';
-			  starRating.appendChild(halfStar);
-			}
-
-			
-			for (var j = 0; j < 5 - (fullStars + halfStars); j++) {
-			  var emptyStar = document.createElement('i');
-			  emptyStar.className = 'material-icons';
-			  emptyStar.textContent = 'star_border';
-			  starRating.appendChild(emptyStar);
-			}
-		
-			
-			  var buyButton = document.createElement('button');
-	          buyButton.textContent = 'Buy';
-	          buyButton.className ='buy-btn'+i;
-	          buyButton.addEventListener('click', function() {
-	            // Handle click event
-	            console.log('Buy button clicked');
-	            var modal = document.createElement('div');
-	            modal.classList.add('modal', 'fade');
-	            modal.setAttribute('tabindex', '-1');
-	            modal.setAttribute('aria-labelledby', 'exampleModalLabel');
-	            modal.setAttribute('aria-hidden', 'true');
-
-	            // Set the modal's HTML content
-	            modal.innerHTML = `
-	              <div class="modal-dialog">
-	                <div class="modal-content">
-	                  <div class="modal-body">
-	                    
-	                      <h3 class="modal-h3">Order Summary</h3>
-	                      <p class="p-modal-companyname">Company Name</p>
-	                      <p class="p-modal-company5">Royal Sundaram</p>
-	                      <p class="p-modal-plan">Plan</p>
-	                      <p class="p-modal-baseplan">Basic Plan</p>
-	                      <p class="p-modal-amount">Plan Amount</p>
-	                      <p class="p-modal-dollar">$1500</p>
-	                      <p class="p-modal-gst">GST</p>
-	                      <p class="p-percentage">0.00</p>
-	                      <p class="p-modal-total-amount">Total Amount</p>
-	                      <p class="p-modal-totaldollar">$1500</p>
-	                      <hr>
-	                      <h2 class="modal-h2">Select Payment Method</h2>
-	                      <p class="p-modal-body">UPI ID</p>
-	                      
-	                      <select placeholder="UPI Apps" class="dropdown">
-	                        <option style="background: white;color:black;" value="" disabled selected>Gpay</option>
-	                        <option style="background: white;color:black;" value="Cardiologists">Phonepe</option>
-	                        <option style="background: white;color:black;" value="Dermatologists">Paytm</option>
-	                      </select>
-	                    <form>
-	                      <input type="text" class="modal-mobile-number-input" name="number" required>
-	                      
-	                      <!--<input type="submit" class="modal-submit-btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" value="Confirm">-->
-	                    </form>
-	                    <button type="submit" class="modal-submit-btn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Confirm</button>
-	                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-	                    
-	                  </div>
-	                </div>
-	              </div>
-	            `;
-
-	            // Append the modal to the document body
-	            document.body.appendChild(modal);
-
-	            // Show the modal
-	            var modalInstance = new bootstrap.Modal(modal);
-	            modalInstance.show();
-	          });
-			companyDiv.appendChild(companyImage);
-			companyDiv.appendChild(companyName);
-			companyDiv.appendChild(companyPlan);
-			companyDiv.appendChild(companyPlan);
-			companyDiv.appendChild(policyAmount);
-			companyDiv.appendChild(buyButton);
-			companyDiv.appendChild(starRating);
-			document.body.appendChild(companyDiv);
-			document.body.appendChild(buyButton);
-			}
+				
+				  var buyButton = document.createElement('button');
+		          buyButton.textContent = 'Buy';
+		          buyButton.className ='buy-btn'+i;
+		          buyButton.value = i;
+		          
+		          buyButton.addEventListener('click', function() {
+		            
+		            console.log('Buy button clicked');
+		            debugger;
+		            var modal = document.createElement('div');
+		            modal.classList.add('modal', 'fade');
+		            modal.setAttribute('tabindex', '-1');
+		            modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+		            modal.setAttribute('aria-hidden', 'true');
+	
+		            
+		            modal.innerHTML = `
+		              <div class="modal-dialog">
+		                <div class="modal-content">
+		                  <div class="modal-body">
+		                    
+		                      <h3 class="modal-h3">Order Summary</h3>
+		                      <p class="p-modal-companyname">Company Name</p>
+		              
+		                      <p class="p-modal-company5">`+company["company"][this.value].company_name+`</p>
+		                      <p class="p-modal-plan">Plan</p>
+		                      <p class="p-modal-baseplan">Base Plan</p>
+		                      <p class="p-modal-amount">Plan Amount</p>
+		                      <p class="p-modal-dollar">`+company["company"][this.value].premium_amount+`</p>
+		                      <p class="p-modal-gst">GST</p>
+		                      <p class="p-percentage">0.00</p>
+		                      <p class="p-modal-total-amount">Total Amount</p>
+		                      <p class="p-modal-totaldollar">`+company["company"][this.value].premium_amount+`</p>
+		                      <hr>
+		                      <h2 class="modal-h2">Select Payment Method</h2>
+		                      <p class="p-modal-body">UPI ID</p>
+		                      
+		                      <select  id="payvia" placeholder="UPI Apps" class="dropdown">
+		                        <option style="background: white;color:black;" value="Gpay" disabled selected>Gpay</option>
+		                        <option style="background: white;color:black;" value="Phonepe">Phonepe</option>
+		                        <option style="background: white;color:black;" value="Paytm">Paytm</option>
+		                      </select>
+		                      <form>
+			                      <input type="text" class="modal-mobile-number-input" name="number" id="number-input" required>
+			                      <button type="submit" class="modal-submit-btn" data-bs-target="#exampleModalToggle2"onclick="confirmFunction()" id="confirm-btn">Confirm</button>
+		                      </form>
+		                     
+		                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+		                   
+		                  </div>
+		                </div>
+		              </div>
+		            `;
+	
+		            
+		            document.body.appendChild(modal);
+	
+		           
+		            var modalInstance = new bootstrap.Modal(modal);
+		            modalInstance.show();
+		          });
+		          
+				companyDiv.appendChild(companyImage);
+				companyDiv.appendChild(companyName);
+				companyDiv.appendChild(companyPlan);
+				companyDiv.appendChild(companyPlan);
+				companyDiv.appendChild(policyAmount);
+				companyDiv.appendChild(buyButton);
+				companyDiv.appendChild(starRating);
+				document.body.appendChild(companyDiv);
+				document.body.appendChild(buyButton);
+				}
 			},
 			error : function() {
 			}
 			});
 			}
 			
+      </script>
+      <input type="text" id="data-input" value="">
+      <script type="text/javascript">
+      function confirmFunction() {
+    	  debugger;
+	    	  var policy_start_date = new Date();
+	    	  var policy_end_date = new Date(policy_start_date.getFullYear() + 1, policy_start_date.getMonth(), policy_start_date.getDate());
+				console.log(policy_start_date);
+				console.log(policy_end_date);
+			  const UrlParam = new URLSearchParams(window.location.search);
+			  var userName = UrlParam.get('name');
+		    	  console.log(userName);
+    	      var userMobileNumber=UrlParam.get('mobileNumber');
+	    	  var payment_via = document.getElementById("payvia").value;
+	    	  console.log(payment_via);
+	    	  var company_name = document.getElementsByClassName("p-modal-company5")[0].innerText;
+	    	  console.log(company_name);
+	    	  var plan =document.getElementsByClassName("p-modal-baseplan")[0].innerText;
+	    	  console.log(plan);
+	    	  var premium_amount = document.getElementsByClassName("p-modal-totaldollar")[0].innerText;
+	    	  console.log(premium_amount);
+	    	  var data = {
+	    			userName : userName,
+	    			userMobileNumber:userMobileNumber,
+	  				PaymentVia : payment_via,
+	  				PolicyStartdate : policy_start_date,
+	  				PolicyEndDate : policy_end_date,
+	  				CompanyName : company_name,
+	  				Plan : plan,
+	  				Amount : premium_amount
+	  			};
+	    	  console.log(data);
+    	  $.ajax({
+    	    type: "POST",
+    	    headers: {
+    	      "Content-Type": "application/json",
+    	    },
+    	    crossDomain: true,
+    	    url: "/home/company2",
+    	    data: JSON.stringify(data),
+    	    success: function (response) {
+    	      var receivedData=response;
+    	    },
+    	    error: function (error) {
+    	      // Handle error response
+    	    },
+    	  });
+    	}
       </script>
    
 </body>

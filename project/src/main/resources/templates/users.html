@@ -1169,18 +1169,25 @@
                 // async: false,
                 success:function(response) {
                 	debugger;
+                	var name1=response.name;
+                	var mobileNumber1=response.mobileNumber;
+                	console.log(name1);
+                	console.log(mobileNumber1);
                 	var receivedData=response;
                 	
                 	console.log(receivedData);
+                	/* receivedData.name; */
                 	
-                	if(receivedData.status == "201")
+                	if(receivedData.status == "300")
                 	{
-	                	window.location.href = "http://localhost:8080/home/company";
+                		alert("You don't have an account or your password and mobile number not match please check it");
                 	}
                 	else
                 	{
-	                	alert("You don't have an account or your password and mobile number not match please check it");
-	                	
+                		
+                		/* sessionStorage.setItem("name", name);
+                		console.log(name); */
+	                	window.location.href = "http://localhost:8080/home/company?name=" + name1 + "&mobileNumber=" + mobileNumber1;
                 	}
                 	console.log(data);
    					
