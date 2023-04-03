@@ -11,6 +11,16 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <style type="text/css">
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus{
+	outline:none;
+}
+
 .container-fluid{
 	top: 0px;
 	left: 0px;
@@ -70,7 +80,7 @@
 	position:absolute;
 	top: 45px;
 	left: 1696px;
-	width: 87px;
+	width: 120px;
 	height: 22px;
 	text-align: left;
 	font: normal normal bold 20px/23px Arial;
@@ -1053,8 +1063,10 @@
 	color: #3F3F57;
 	opacity: 1;
 }
+
 #modal-done-btn{
 	position:absolute;
+	cursor:pointer;
 	top:271px;
 	left:146px;
 	width: 277px;
@@ -1079,9 +1091,10 @@
     opacity: 1;
     color:#F26F20;
 }
+
 </style>
 </head>
-<body onload = "open()">
+<body onload = "open();userName()">
 	<div class="container-fluid">
 		<div class="header">
 			<div>
@@ -1090,7 +1103,15 @@
 				<a href="http://localhost:8080/home/users"><h1 class="header-text">Policyalliance</h1></a>
 			</div>
 			<span class="material-icons" id="account">account_circle</span>
-			<p class="p-fayaz">Hi,Fayaz</p>
+			<script type="text/javascript">
+			function userName(){
+			    const UrlParam = new URLSearchParams(window.location.search);
+			    var userName = UrlParam.get('name');
+			    var pFayaz = document.getElementsByClassName('p-fayaz')[0];
+			    pFayaz.textContent = 'Hi, ' + userName;
+			}
+			</script>
+			<p class="p-fayaz"></p>
 		</div>
 		<div class="body-content">
 			<input class="body1" type="search" placeholder="" />
@@ -1101,7 +1122,7 @@
 		</div>
 		<p class="companies">Companies</p>
 		</div>
-		<div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+		<!-- <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
 					aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content2">
@@ -1112,11 +1133,12 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 	
 
 		<script type="text/javascript">
 			function open(){
+				
 			$.ajax({
 				
 			type : "POST",
@@ -1126,6 +1148,8 @@
 			crossDomain : true,
 			url : "/home/company",
 			success : function(data) {
+				
+					
 			var company=JSON.parse(data);
 			console.log(company["company"])
 			for (var i = 0; i < company["company"].length; i++) {
@@ -1148,7 +1172,6 @@
 				var companyPlan = document.createElement('p');
 				companyPlan.textContent = company["company"][i].plan;
 				companyPlan.className = 'company-plan'+i;
-				
 				
 				var policyAmount = document.createElement('p');
 				policyAmount.textContent = `${company["company"][i].premium_amount}`;
@@ -1197,56 +1220,46 @@
 		            var modal = document.createElement('div');
 		            modal.classList.add('modal', 'fade');
 		            modal.setAttribute('tabindex', '-1');
+		            modal.setAttribute("id",'exampleModalToggle');
 		            modal.setAttribute('aria-labelledby', 'exampleModalLabel');
 		            modal.setAttribute('aria-hidden', 'true');
-	
-		            
 		            modal.innerHTML = `
 		              <div class="modal-dialog">
 		                <div class="modal-content">
 		                  <div class="modal-body">
-		                    
-		                      <h3 class="modal-h3">Order Summary</h3>
-		                      <p class="p-modal-companyname">Company Name</p>
-		              
-		                      <p class="p-modal-company5">`+company["company"][this.value].company_name+`</p>
-		                      <p class="p-modal-plan">Plan</p>
-		                      <p class="p-modal-baseplan">Base Plan</p>
-		                      <p class="p-modal-amount">Plan Amount</p>
-		                      <p class="p-modal-dollar">`+company["company"][this.value].premium_amount+`</p>
-		                      <p class="p-modal-gst">GST</p>
-		                      <p class="p-percentage">0.00</p>
-		                      <p class="p-modal-total-amount">Total Amount</p>
-		                      <p class="p-modal-totaldollar">`+company["company"][this.value].premium_amount+`</p>
-		                      <hr>
-		                      <h2 class="modal-h2">Select Payment Method</h2>
-		                      <p class="p-modal-body">UPI ID</p>
-		                      
-		                      <select  id="payvia" placeholder="UPI Apps" class="dropdown">
-		                        <option style="background: white;color:black;" value="Gpay" disabled selected>Gpay</option>
-		                        <option style="background: white;color:black;" value="Phonepe">Phonepe</option>
-		                        <option style="background: white;color:black;" value="Paytm">Paytm</option>
-		                      </select>
-		                      <form>
-			                      <input type="text" class="modal-mobile-number-input" name="number" id="number-input" required>
-			                      <button type="submit" class="modal-submit-btn" data-bs-target="#exampleModalToggle2"onclick="confirmFunction()" id="confirm-btn">Confirm</button>
-		                      </form>
-		                     
+		                    <h3 class="modal-h3">Order Summary</h3>
+		                    <p class="p-modal-companyname">Company Name</p>
+		                    <p class="p-modal-company5">${company["company"][this.value].company_name}</p>
+		                    <p class="p-modal-plan">Plan</p>
+		                    <p class="p-modal-baseplan">Base Plan</p>
+		                    <p class="p-modal-amount">Plan Amount</p>
+		                    <p class="p-modal-dollar">${company["company"][this.value].premium_amount}</p>
+		                    <p class="p-modal-gst">GST</p>
+		                    <p class="p-percentage">0.00</p>
+		                    <p class="p-modal-total-amount">Total Amount</p>
+		                    <p class="p-modal-totaldollar">${company["company"][this.value].premium_amount}</p>
+		                    <hr>
+		                    <h2 class="modal-h2">Select Payment Method</h2>
+		                    <p class="p-modal-body">UPI ID</p>
+		                    <select id="payvia" placeholder="UPI Apps" class="dropdown">
+		                      <option style="background: white;color:black;" value="Gpay" disabled selected>Gpay</option>
+		                      <option style="background: white;color:black;" value="Phonepe">Phonepe</option>
+		                      <option style="background: white;color:black;" value="Paytm">Paytm</option>
+		                    </select>
+		                      <input type="text" class="modal-mobile-number-input" id="upi-input" name="number" required oninput="filled(this.value)">
+		                      <button type="button" class="modal-submit-btn"  data-bs-target="exampleModalToggle2" onclick="confirmFunction()" id="confirmBtn" data-bs-dismiss="modal" disabled>Confirm</button>
 		                    <button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		                   
 		                  </div>
 		                </div>
 		              </div>
 		            `;
-	
-		            
+		            debugger;
 		            document.body.appendChild(modal);
-	
-		           
 		            var modalInstance = new bootstrap.Modal(modal);
 		            modalInstance.show();
 		          });
 		          
+		    	  
 				companyDiv.appendChild(companyImage);
 				companyDiv.appendChild(companyName);
 				companyDiv.appendChild(companyPlan);
@@ -1257,60 +1270,116 @@
 				document.body.appendChild(companyDiv);
 				document.body.appendChild(buyButton);
 				}
+			
+				 
 			},
+			
 			error : function() {
 			}
 			});
+			
+			}
+			function filled(value){
+				if(value==""){
+					document.getElementById("confirmBtn").disabled=true;
+				}
+				else{
+					document.getElementById("confirmBtn").disabled=false;
+				}
+				
 			}
 			
       </script>
-      <input type="text" id="data-input" value="">
       <script type="text/javascript">
-      function confirmFunction() {
-    	  debugger;
-	    	  var policy_start_date = new Date();
-	    	  var policy_end_date = new Date(policy_start_date.getFullYear() + 1, policy_start_date.getMonth(), policy_start_date.getDate());
-				console.log(policy_start_date);
-				console.log(policy_end_date);
-			  const UrlParam = new URLSearchParams(window.location.search);
-			  var userName = UrlParam.get('name');
+		      function confirmFunction() {
+		    	  var modalInstance = new bootstrap.Modal(document.getElementById('exampleModalToggle'));
+		           
+		            modalInstance.hide();
+		    	  var policy_start_date = new Date();
+		    	  var policy_end_date = new Date(policy_start_date.getFullYear() + 1, policy_start_date.getMonth(), policy_start_date.getDate());
+
+		    	  var policy_start_date_string = policy_start_date.toLocaleDateString();
+		    	  var policy_end_date_string = policy_end_date.toLocaleDateString();
+
+		    	  console.log(policy_start_date_string);
+		    	  console.log(policy_end_date_string);
+		    	  const UrlParam = new URLSearchParams(window.location.search);
+		    	  var userName = UrlParam.get('name');
+		    	  
 		    	  console.log(userName);
-    	      var userMobileNumber=UrlParam.get('mobileNumber');
-	    	  var payment_via = document.getElementById("payvia").value;
-	    	  console.log(payment_via);
-	    	  var company_name = document.getElementsByClassName("p-modal-company5")[0].innerText;
-	    	  console.log(company_name);
-	    	  var plan =document.getElementsByClassName("p-modal-baseplan")[0].innerText;
-	    	  console.log(plan);
-	    	  var premium_amount = document.getElementsByClassName("p-modal-totaldollar")[0].innerText;
-	    	  console.log(premium_amount);
-	    	  var data = {
-	    			userName : userName,
-	    			userMobileNumber:userMobileNumber,
-	  				PaymentVia : payment_via,
-	  				PolicyStartdate : policy_start_date,
-	  				PolicyEndDate : policy_end_date,
-	  				CompanyName : company_name,
-	  				Plan : plan,
-	  				Amount : premium_amount
-	  			};
-	    	  console.log(data);
-    	  $.ajax({
-    	    type: "POST",
-    	    headers: {
-    	      "Content-Type": "application/json",
-    	    },
-    	    crossDomain: true,
-    	    url: "/home/company2",
-    	    data: JSON.stringify(data),
-    	    success: function (response) {
-    	      var receivedData=response;
-    	    },
-    	    error: function (error) {
-    	      // Handle error response
-    	    },
-    	  });
-    	}
+		    	  var userMobileNumber = UrlParam.get('mobileNumber');
+		
+		    	  var payment_via = document.getElementById("payvia").value;
+		    	  console.log(payment_via);
+		
+		    	  var company_name = document.getElementsByClassName("p-modal-company5")[0].innerText;
+		    	  console.log(company_name);
+		
+		    	  var plan = document.getElementsByClassName("p-modal-baseplan")[0].innerText;
+		    	  console.log(plan);
+		
+		    	  var premium_amount = document.getElementsByClassName("p-modal-totaldollar")[0].innerText;
+		    	  console.log(premium_amount);
+		    	  
+		    	  var successModal = `
+		                <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2">
+		                  <div class="modal-dialog">
+		                    <div class="modal-content2">
+		                      <div class="modal-body" id="second-modal">
+								  <span class="material-icons" id="succeed-icon">check_circle</span>
+								  <h1 class="modal-h1">Purchase Successful</h1>
+								  <button type="button" id="modal-done-btn" data-bs-dismiss="modal" onclick="finalStep()">Done</button>
+							  </div>
+		                    </div>
+		                  </div>
+		                </div>
+		              `;
+		              debugger;
+		            document.body.innerHTML += successModal;
+		            console.log("Success modal added to page");
+		            var successModalInstance = new bootstrap.Modal(document.getElementById('exampleModalToggle2'));
+		            successModalInstance.show();
+		            console.log("After initializing success modal");
+		
+		    	  var data = {
+		    	    userName: userName,
+		    	    userMobileNumber: userMobileNumber,
+		    	    PaymentVia: payment_via,
+		    	    PolicyStartdate: policy_start_date_string,
+		    	    PolicyEndDate: policy_end_date_string,
+		    	    CompanyName: company_name,
+		    	    Plan: plan,
+		    	    Amount: premium_amount
+		    	  }
+		    	  
+		            
+					debugger;
+		    	  $.ajax({
+		    	    type: "POST",
+		    	    headers: {
+		    	      "Content-Type": "application/json",
+		    	    },
+		    	    crossDomain: true,
+		    	    url: "/home/company2",
+		    	    dataType:'json',
+		    	    data: JSON.stringify(data),
+		    	    success: function (data) {
+		    	    	debugger;
+		    	      var receivedData = data;
+		    	   // code for success modal
+		    	  debugger;
+		    	  
+		    	    },
+		    	    error: function (error) {
+		    	      console.log("AJAX request failed!");
+		    	      console.log("Error data: ", error);
+		    	    },
+		    	  });
+		    	}
+		      debugger;
+		      function finalStep(){
+		    	  window.location.href = "http://localhost:8080/home/users";
+		      }
       </script>
    
 </body>

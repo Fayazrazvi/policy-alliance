@@ -60,7 +60,7 @@ public class UserServiceImpl {
 	}
 	
 	
-	public Map<String, Object> getHistory(@RequestBody Map<String,Object> user) {
+	public Map<String, Object> getHistory(Map<String,Object> user) {
 		Map<String, Object> h = new HashMap<>();
 		String name = (String) user.get("userName");
 		Long mobile_number=Long.valueOf((String)user.get("userMobileNumber"));
@@ -106,25 +106,21 @@ public class UserServiceImpl {
 		return e;
 	}
 	
-	public Map<String, Object> getCustomer(Map<String,Object> user){
+	public Map<String, Object> getCustomer(@RequestBody Map<String,Object> user){
 		Map<String,Object> resultData= new HashMap<>();
 		String mobile_number =(String)user.get("MobileNumber");
 		long number2 = Long.valueOf(mobile_number);
 		List<Map<String, Object>> customerDetail=userRepository.getCustomerDetails(number2);
+		logger.info("individual customer"+customerDetail);
 		if(customerDetail.isEmpty()) {
-			resultData.put("success", customerDetail);
+			resultData.put("status","200");
 			
 		}
 		else {
-			resultData.put("status", "201");
+			resultData.put("success", customerDetail);
 		}
 		return resultData;
 	
-	}
-	
-	
-	public User insertData(User user) {
-		return userRepository.save(user);
 	}
 	
 	

@@ -106,9 +106,9 @@ public class UserController {
 	public String insertPaymentData(@RequestBody Map<String,Object> user) {
 		Map<String,Object> result=userService.getHistory(user);
 		logger.info("check"+user);
-		String data =new Gson().toJson(result);
-		logger.info("check32312" + data);
-	    return data;
+		String data8 =new Gson().toJson(result);
+		logger.info("check3333333" + data8);
+	    return data8;
 	}
 	
 	
@@ -123,16 +123,11 @@ public class UserController {
 	@PostMapping("/users2")
 	@ResponseBody
 	public String sendCustomers(@RequestBody Map<String,Object> user){
-	String finalProducts="";
-	try {
-	Map<String, Object> customerData=userService.getCustomer(user);
-	logger.info("check"+customerData);
-	finalProducts=new Gson().toJson(customerData);
+		logger.info("check"+user);
+	Map<String,Object> customerData=userService.getCustomer(user);
+	String finalProducts=new Gson().toJson(customerData);
+	logger.info("cus"+customerData);
 	logger.info(finalProducts);
-	}
-	catch (Exception e) {
-	logger.info("Error is"+e);
-	}
 	return finalProducts;
 	}
 	
@@ -140,15 +135,11 @@ public class UserController {
 	@ResponseBody
 	public String sendProducts(){
 	String finalProducts="";
-	try {
 	Map<String, Object> companyData=userService.getAllCompany();
 	logger.info("check"+companyData);
 	finalProducts=new Gson().toJson(companyData);
 	logger.info(finalProducts);
-	}
-	catch (Exception e) {
-	logger.info("Error is"+e);
-	}
+	
 	return finalProducts;
 	}
 	

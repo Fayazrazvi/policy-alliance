@@ -11,6 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <style type="text/css">
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container-fluid{
 	top: 0px;
 	left: 0px;
@@ -168,6 +174,9 @@
 	border: 1px solid #707070;
 	opacity: 1;
 }
+#name-input:focus{
+	outline:none;
+}
 #mobile-number{
 	position:absolute;
 	top: 227px;
@@ -189,6 +198,9 @@
 	background: #FFFFFF 0% 0% no-repeat padding-box;
 	border: 1px solid #707070;
 	opacity: 1;
+}
+#mobile-number-input:focus{
+	outline:none;
 }
 #password{
 	position:absolute;
@@ -212,7 +224,9 @@
 	border: 1px solid #707070;
 	opacity: 1;
 }
-
+#password-input:focus{
+	outline:none;
+}
 
 #age{
 	position:absolute;
@@ -235,6 +249,9 @@
 	background: #FFFFFF 0% 0% no-repeat padding-box;
 	border: 1px solid #707070;
 	opacity: 1;
+}
+#age-input:focus{
+	outline:none;
 }
 .register-btn{
 	position:absolute;
@@ -260,15 +277,15 @@
 			<div>
 				<img class="header-img"
 					src="https://thumbs.dreamstime.com/b/simple-beautiful-blue-heart-ekg-beat-isolated-white-background-blue-heart-ekg-beat-isolated-white-background-144830930.jpg">
-				<h1 class="header-text">Policyalliance</h1>
+				<a href="http://localhost:8080/home/users"><h1 class="header-text">Policyalliance</h1></a>
 			</div>
-			<a href="">
+			<!-- <a href="">
 				<button id="Buy">Buy Now</button>
 			</a> <a href="">
 				<button id="Customer">Customer</button>
 			</a> <a href="">
 				<button id="Register">Register</button>
-			</a>
+			</a> -->
 		</div>
 		<div class="register-img">
 			<img alt="wait" id="register-img"
@@ -277,6 +294,7 @@
 		<div class="register-content">
 			<p class="register-p">Register</p>
 			<div>
+			<form>
 				<label for="name" id="name">Name:</label><br> 
 				<input type="text" id="name-input" name="name" required><br>
 				<label for="number" id="mobile-number">Mobile Number:</label><br>
@@ -287,9 +305,10 @@
 				<label for="age" id="age">Age:</label><br> 
 				<input type="number" id="age-input" name="age" required><br> 
 				<a href="http://localhost:8080/home/users"><input type="submit" class="register-btn" value="Register" onclick="dataFilter()"></a>
-            <div>
+			</form>
+            </div>
 		</div>
-
+	</div>
 		<script type="text/javascript">
 		function dataFilter() {
 			var name = document.getElementById("name-input").value;
@@ -324,7 +343,7 @@
                 	
                 	if(receivedData.status == "201")
                 	{
-	                	alert("Your Already Registered User Kindly login ");
+	                	alert("Your Already Registered User, So You Can Buy the Policy  ");
 	                	window.location.href = "http://localhost:8080/home/users?";
                 	}
                 	else
@@ -372,7 +391,7 @@
 		</script>
 		
 
-	</div>
+	
 
 </body>
 </html>
