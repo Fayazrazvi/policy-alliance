@@ -25,12 +25,6 @@ public class Payment {
     @Column(name = "payment_id")
     private int payment_id;
     
-    @Column(name = "user_id")
-	private int user_id;
-    
-    @Column(name = "company_id")
-	private int company_id;
-    
     @Column(name = "payment_via")
     private String payment_via;
     
@@ -57,10 +51,8 @@ public class Payment {
     	
     }
      
- public Payment(int payment_id ,int user_id,int company_id, String payment_via , String policy_start_date , String policy_end_date,String name,String company_name,long mobile_number) {
+ public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,String name,String company_name,long mobile_number) {
 	 this.payment_id=payment_id;
-	 this.user_id=user_id;
-	 this.company_id=company_id;
 	 this.payment_via=payment_via;
 	 this.policy_start_date=policy_start_date;
 	 this.policy_end_date=policy_end_date;
@@ -70,21 +62,6 @@ public class Payment {
     	
     }
  
- public int getUser_id() {
-	return user_id;
-}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-	
-	public int getCompany_id() {
-		return company_id;
-	}
-	
-	public void setCompany_id(int company_id) {
-		this.company_id = company_id;
-	}
 	
 	public String getPayment_via() {
 			return payment_via;

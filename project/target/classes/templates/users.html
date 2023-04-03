@@ -11,6 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <style type="text/css">
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .container-fluid{
 	top: 0px;
 	left: 0px;
@@ -871,6 +877,9 @@
 	border: 1px solid #707070;
 	opacity: 1;
 }
+.modal-mobile-number-input:focus{
+	outline:none;
+}
 .p-modal-body2{
 	position:absolute;
 	top: 146px;
@@ -892,6 +901,9 @@
 	background: #FFFFFF 0% 0% no-repeat padding-box;
 	border: 1px solid #707070;
 	opacity: 1;
+}
+.modal-password-input:focus{
+	outline:none;
 }
 .modal-submit-btn{
 	position:absolute;
@@ -925,7 +937,7 @@
 
 
 </head>
-<body onload = "process()">
+<body>
 <div class="container-fluid">
 		<div class="header">
 			<div >
@@ -1174,19 +1186,13 @@
                 	console.log(name1);
                 	console.log(mobileNumber1);
                 	var receivedData=response;
-                	
                 	console.log(receivedData);
-                	/* receivedData.name; */
-                	
                 	if(receivedData.status == "300")
                 	{
                 		alert("You don't have an account or your password and mobile number not match please check it");
                 	}
                 	else
                 	{
-                		
-                		/* sessionStorage.setItem("name", name);
-                		console.log(name); */
 	                	window.location.href = "http://localhost:8080/home/company?name=" + name1 + "&mobileNumber=" + mobileNumber1;
                 	}
                 	console.log(data);
@@ -1220,10 +1226,8 @@
 			function showPassword() {
 					var loginPassword = document.querySelector('#password');
 					var loginToggle = document.querySelector("#loginToggle");
-					// toggle the type attribute
 					var type = loginPassword.getAttribute('type') === 'password' ? 'text' : 'password';
 					loginPassword.setAttribute('type', type);
-					// toggle the eye slash icon
 					loginToggle.classList.toggle('fa-eye-slash');
 			   }
 		</script>
@@ -1250,18 +1254,19 @@
                 // async: false,
                 success:function(response) {
                 	debugger;
+                	
                 	var receivedData=response;
-                	
                 	console.log(receivedData);
-                	
-                	if(receivedData.status == "201")
+                	var number=response.MobileNumber;
+                	if(receivedData.status == "200")
                 	{
 	                	
-	                	window.location.href = "http://localhost:8080/home/customers";
+                		alert("You don't have any policy  please buy first");
                 	}
                 	else
                 	{
-	                	alert("You don't have any policy  please buy first");
+                		window.location.href = "http://localhost:8080/home/customers";
+	                	
 	                	
                 	}
                 	console.log(data);
