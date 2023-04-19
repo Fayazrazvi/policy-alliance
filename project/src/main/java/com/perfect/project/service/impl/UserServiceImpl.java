@@ -68,7 +68,7 @@ public class UserServiceImpl {
 	    String policy_start_date =(String)user.get("PolicyStartdate");
 	    String policy_end_date =(String)user.get("PolicyEndDate");
 //	    String premium_amount=(String)user.get("Amount");
-	    int premium_amount=Integer.valueOf((String)user.get("Amount"));
+	    String premium_amount = (String) user.get("Amount");
 	    String company_name = (String) user.get("CompanyName");
 	    String plan = (String) user.get("Plan");
 //	    int amount=Integer.valueOf(premium_amount);

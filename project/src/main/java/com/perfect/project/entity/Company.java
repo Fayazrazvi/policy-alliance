@@ -34,7 +34,7 @@ public class Company {
 	
 	
 	@Column(name = "premium_amount")
-	private int premium_amount;
+	private String premium_amount;
 	
 	
 	@Column(name="company_image")
@@ -47,7 +47,7 @@ public class Company {
 	public Company() {
 
 	    }
-	 public Company(int star_rating , int company_id ,String company_name , int premium_amount, String company_image ,  String plan,int user_id) {
+	 public Company(int star_rating , int company_id ,String company_name , String premium_amount, String company_image ,  String plan,int user_id) {
 		 this.star_rating=star_rating;
 		 this.company_id=company_id;
 		 this.company_name=company_name;
@@ -88,11 +88,11 @@ public class Company {
 	        this.company_name = company_name;
 	    }
 	    
-	    public int getpremium_amount() {
+	    public String getpremium_amount() {
 	        return premium_amount;
 	    }
 
-	    public void setpremium_amount(int premium_amount) {
+	    public void setpremium_amount(String premium_amount) {
 	        this.premium_amount = premium_amount;
 	    }
 	    

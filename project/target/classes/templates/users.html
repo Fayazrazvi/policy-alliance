@@ -80,7 +80,7 @@ input::-webkit-inner-spin-button {
 #Customer{
 	position:absolute;
 	text-decoration:none;
-    top: 44px;
+    top: 40px;
 	left: 1450px;
 	width: 87px;
 	height: 22px;
@@ -840,6 +840,16 @@ input::-webkit-inner-spin-button {
 	top: 340px;
 	left: 666px;
 }
+.company-list9{
+	position:absolute;
+	top: 340px;
+	left: 999px;
+}
+.company-list10{
+	position:absolute;
+	top: 340px;
+	left: 1332px;
+}
 
 .modal-backdrop{
 	z-index: 0 !Important;
@@ -1155,6 +1165,26 @@ input::-webkit-inner-spin-button {
 			<span class="material-icons" id="star-icon4">star_outline</span>
 			<span class="material-icons" id="star-icon5">star_outline</span>
 		</div>
+		<div class="company-list9">
+			<img class="company1" alt="wait" src="https://d28c6jni2fmamz.cloudfront.net/star_health_logo_big_77cff254bd.svg">
+			<a href="https://www.starhealth.in/" target="_blank" class="star">Star Health Insurance</a>
+			<p class="p-base">Base plan</p>
+			<span class="material-icons" id="star-icon1">star_outline</span>
+			<span class="material-icons" id="star-icon2">star_outline</span>
+			<span class="material-icons" id="star-icon3">star_outline</span>
+			<span class="material-icons" id="star-icon4">star_outline</span>
+			<span class="material-icons" id="star-icon5">star_outline</span>
+		</div>
+		<div class="company-list10">
+			<img class="company1" alt="wait" src="https://d28c6jni2fmamz.cloudfront.net/star_health_logo_big_77cff254bd.svg">
+			<a href="https://www.starhealth.in/" target="_blank" class="star">Star Health Insurance</a>
+			<p class="p-base">Base plan</p>
+			<span class="material-icons" id="star-icon1">star_outline</span>
+			<span class="material-icons" id="star-icon2">star_outline</span>
+			<span class="material-icons" id="star-icon3">star_outline</span>
+			<span class="material-icons" id="star-icon4">star_outline</span>
+			<span class="material-icons" id="star-icon5">star_outline</span>
+		</div>
 	</div>
 	<script type="text/javascript">
 		function dataFilter() {
@@ -1189,7 +1219,8 @@ input::-webkit-inner-spin-button {
                 	console.log(receivedData);
                 	if(receivedData.status == "300")
                 	{
-                		alert("You don't have an account or your password and mobile number not match please check it");
+                		showModal();
+                	
                 	}
                 	else
                 	{
@@ -1220,7 +1251,33 @@ input::-webkit-inner-spin-button {
                     }
                 }
             });
-        }	
+        }
+		debugger;
+		function showModal(){
+		var modal =
+		document.createElement('div');
+		modal.classList.add('modal', 'fade');
+		modal.setAttribute('tabindex', '-1');
+		modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+		modal.setAttribute('id', 'exampleModal3');
+		modal.setAttribute('aria-hidden', 'true');
+		modal.innerHTML = `
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-body">
+		<h3 class="modalHeading">You don't have an account or your password and mobile number not match please check it</h3>
+		<button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirect()">Ok</button>
+		</div>
+		</div>
+		</div>`;
+		document.body.appendChild(modal);
+		var firstModalInstance = new bootstrap.Modal(modal);
+		firstModalInstance.show();
+		}
+		function redirect()
+		{
+		window.location.href = "http://localhost:8080/home/users?";
+		}
 		</script>
 		<script type="text/javascript">
 			function showPassword() {
@@ -1260,8 +1317,8 @@ input::-webkit-inner-spin-button {
                 	var number=response.MobileNumber;
                 	if(receivedData.status == "200")
                 	{
+                		showModal1();
 	                	
-                		alert("You don't have any policy  please buy first");
                 	}
                 	else
                 	{
@@ -1295,6 +1352,31 @@ input::-webkit-inner-spin-button {
                 }
             });
         }	
+		function showModal1(){
+			var modal =
+			document.createElement('div');
+			modal.classList.add('modal', 'fade');
+			modal.setAttribute('tabindex', '-1');
+			modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+			modal.setAttribute('id', 'exampleModal4');
+			modal.setAttribute('aria-hidden', 'true');
+			modal.innerHTML = `
+			<div class="modal-dialog">
+			<div class="modal-content">
+			<div class="modal-body">
+			<h3 class="modalHeading">You dont have any policy  please buy first</h3>
+			<button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirect()">Ok</button>
+			</div>
+			</div>
+			</div>`;
+			document.body.appendChild(modal);
+			var firstModalInstance = new bootstrap.Modal(modal);
+			firstModalInstance.show();
+			}
+			function redirect()
+			{
+			window.location.href = "http://localhost:8080/home/users?";
+			}
 		</script>
 
 	

@@ -269,9 +269,21 @@ input::-webkit-inner-spin-button {
     top: 380px;
     left: 462px;
 }
+#numberError{
+	margin-top: 210px;
+    margin-left: 103px;
+    color: red;
+    display: block;
+}
+#modal-cancel-btn{
+	margin-left: 398px;
+    background-color: cornflowerblue;
+    border: none;
+    width: 66px;
+}
 </style>
 </head>
-<body >
+<body onload="register2()">
 	<div class="container-fluid">
 		<div class="header">
 			<div>
@@ -294,22 +306,41 @@ input::-webkit-inner-spin-button {
 		<div class="register-content">
 			<p class="register-p">Register</p>
 			<div>
-			<form>
+			
 				<label for="name" id="name">Name:</label><br> 
 				<input type="text" id="name-input" name="name" required><br>
 				<label for="number" id="mobile-number">Mobile Number:</label><br>
 				<input type="number" id="mobile-number-input" name="mobile_number" required><br>
+				<span id="numberError" style="color: red; display: none;">Please enter a valid 10-digit number</span>
+				<script type="text/javascript">
+				debugger;
+				function register2(){
+					const numberInput = document.getElementById("mobile-number-input");
+					const numberError = document.getElementById("numberError");
+					numberInput.addEventListener("blur", function() {
+					  const number = numberInput.value;
+					  if (number.length === 10 && !isNaN(number)) {
+					numberError.style.display = "none";
+					} else {
+					numberError.style.display = "block";
+					}
+					});
+					 
+				}
+						
+				</script>
 				<label for="name" id="password">Create a Password:</label><br> 
 				<input type="password" id="password-input" name="password" required><br>
 				<span id="loginPasswordSuccess" onclick="showPassword()"><i class="fa fa-eye toggle " id="loginToggle"></i></span>
 				<label for="age" id="age">Age:</label><br> 
 				<input type="number" id="age-input" name="age" required><br> 
-				<a href="http://localhost:8080/home/users"><input type="submit" class="register-btn" value="Register" onclick="dataFilter()"></a>
-			</form>
+				<input type="submit" class="register-btn" value="Register" onclick="dataFilter()">
+			
             </div>
 		</div>
 	</div>
 		<script type="text/javascript">
+		debugger;
 		function dataFilter() {
 			var name = document.getElementById("name-input").value;
 			var mobileNumber = document.getElementById("mobile-number-input").value;
@@ -337,19 +368,15 @@ input::-webkit-inner-spin-button {
                 // async: false,
                 success:function(response) {
                 	debugger;
-                	var receivedData=response;
+                
                 	
-                	console.log(receivedData);
-                	
-                	if(receivedData.status == "201")
+                	if(response.status == "201")
                 	{
-	                	alert("Your Already Registered User, So You Can Buy the Policy  ");
-	                	window.location.href = "http://localhost:8080/home/users?";
+                		showModal();
                 	}
                 	else
                 	{
-	                	alert("Your Id Registered Successfully");
-	                	window.location.href = "http://localhost:8080/home/users?";
+                		showModal1();
                 	}
                 	console.log(data);
    					
@@ -377,6 +404,55 @@ input::-webkit-inner-spin-button {
                 }
             });
         }	
+		 /* MODAL REGISTRATION START */
+		 function showModal(){
+		var modal =
+		document.createElement('div');
+		modal.classList.add('modal', 'fade');
+		modal.setAttribute('tabindex', '-1');
+		modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+		modal.setAttribute('aria-hidden', 'true');
+		modal.innerHTML = `
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-body" id="register-show">
+		<h3 class="modalHeading">You are Already Registered and Please Login</h3>
+		<button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirect()">Ok</button>
+		</div>
+		</div>
+		</div>`;
+		document.body.appendChild(modal);
+		var firstModalInstance = new bootstrap.Modal(modal);
+		firstModalInstance.show();
+		}
+		function redirect()
+		{
+		window.location.href = "http://localhost:8080/home/users?";
+		}
+		function showModal1(){
+		var modal =
+		document.createElement('div');
+		modal.classList.add('modal', 'fade');
+		modal.setAttribute('tabindex', '-1');
+		modal.setAttribute('aria-labelledby', 'exampleModalLabel');
+		modal.setAttribute('aria-hidden', 'true');
+		modal.innerHTML = `
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-body" id="register-show">
+		<h3 class="modalHeading">Your Id Registered Successfully & Please Login</h3>
+		<button type="button" id="modal-cancel-btn" class="btn btn-secondary" data-bs-dismiss="modal" onclick="redirect4()">Ok</button>
+		</div>
+		</div>
+		</div>`;
+		document.body.appendChild(modal);
+		var secondModalInstance = new bootstrap.Modal(modal);
+		secondModalInstance.show();
+		}
+		function redirect4()
+		{
+		window.location.href = "http://localhost:8080/home/users";
+		}
 		</script>
 		<script type="text/javascript">
 			function showPassword() {

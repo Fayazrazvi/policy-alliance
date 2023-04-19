@@ -43,15 +43,23 @@ public class Payment {
     @Column(name = "mobile_number")
     private long mobile_number;
     
+    @Column(name = "Plan")
+    private String Plan;
+    
+    @Column(name = "premium_amount")
+    private String premium_amount;
+    
    
     
    
+
+	
 
 	public Payment() {
     	
     }
      
- public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,String name,String company_name,long mobile_number) {
+ public Payment(int payment_id , String payment_via , String policy_start_date , String policy_end_date,String name,String company_name,long mobile_number,String Plan,String premium_amount) {
 	 this.payment_id=payment_id;
 	 this.payment_via=payment_via;
 	 this.policy_start_date=policy_start_date;
@@ -59,6 +67,8 @@ public class Payment {
 	 this.name=name;
 	 this.company_name=company_name;
 	 this.mobile_number=mobile_number;
+	 this.Plan=Plan;
+	 this.premium_amount=premium_amount;
     	
     }
  
@@ -119,6 +129,22 @@ public class Payment {
 
 	public void setPayment_id(int payment_id) {
 		this.payment_id = payment_id;
+	}
+	
+	public String getPlan() {
+		return Plan;
+	}
+
+	public void setPlan(String plan) {
+		Plan = plan;
+	}
+
+	public String getPremium_amount() {
+		return premium_amount;
+	}
+
+	public void setPremium_amount(String premium_amount) {
+		this.premium_amount = premium_amount;
 	}
 
 }

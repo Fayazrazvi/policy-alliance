@@ -47,6 +47,6 @@ public interface UserRepository extends JpaRepository<User , Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO payment_details(name,mobile_number,payment_via,policy_start_date,policy_end_date,company_name,plan,premium_amount) VALUES(?1,?2,?3,?4,?5,?6,?7,?8)", nativeQuery = true)
-    void insertPaymentDetails( String name,long mobile_number, String payment_via, String policy_start_date,String policy_end_date,String company_name,String plan,int premium_amount);
+    void insertPaymentDetails( String name,long mobile_number, String payment_via, String policy_start_date,String policy_end_date,String company_name,String plan,String premium_amount);
 
 }

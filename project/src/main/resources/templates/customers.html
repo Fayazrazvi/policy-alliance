@@ -77,7 +77,7 @@ input:focus{
 	width: 87px;
 	height: 22px;
 	text-align: left;
-	font: normal normal normal 20px/23px Arial;
+	font: normal normal bold 20px/23px Arial;
 	letter-spacing: 0px;
 	color: #07539D;
 	border: none;
@@ -2420,7 +2420,7 @@ input:focus{
 			<p class="p-fayaz">Hi,Fayaz</p>
 		</div>
 		<div class="body-content">
-			<input type="number" id="payment-id-input" class="body1" placeholder="Enter Your Payment Id">
+			<input type="number" id="payment-id-input" class="body1" placeholder="Enter Your Mobile Number">
             <button onclick="open2()" id="search">Search</button>
 		</div>
 		<table id="table1">
@@ -2526,7 +2526,7 @@ input:focus{
 		</script>
 		<script type="text/javascript">
 		function open2(){
-			  var enteredPaymentId = document.getElementById("payment-id-input").value;
+			  var enteredMobileNumber = document.getElementById("payment-id-input").value;
 			  
 			  $.ajax({
 			    type : "POST",
@@ -2539,7 +2539,7 @@ input:focus{
 			      var customer=JSON.parse(data);
 			      console.log(customer["customer"]);
 			      for (var i = 0; i < customer["customer"].length; i++) {
-			        if (customer["customer"][i].payment_id == enteredPaymentId) {
+			        if (customer["customer"][i].mobile_number == enteredMobileNumber) {
 			          var customerDiv = document.createElement('div');
 			          customerDiv.className = 'customers'+i;
 			          
@@ -2598,5 +2598,3 @@ input:focus{
 
 </body>
 </html>
-
-
